@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Das Dreiwerk – Mitarbeitergewinnung für SHK-Betriebe & Elektriker</title>
+<meta name="description" content="Wie SHK-Betriebe und Elektriker planbar qualifizierte Fachkräfte gewinnen – mit einem klaren 3-Schritte-System, ohne Headhunter, ohne Streuverluste." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #001180;
+    --ink-hover: #000a52;
+    --ink-soft: #1a2a9a;
+    --bg: #ffffff;
+    --bg-soft: #fafafa;
+    --bg-alt: #f4f4f6;
+    --char: #0a0a0f;
+    --muted: #666670;
+    --muted-soft: #8a8a95;
+    --line: rgba(10, 10, 15, 0.08);
+    --line-strong: rgba(10, 10, 15, 0.14);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    color:var(--char);background:var(--bg);
+    overflow-x:hidden;font-weight:400;line-height:1.5;
+    letter-spacing:-0.011em;
+  }
+  a{color:inherit;text-decoration:none}
+  button{border:none;background:none;cursor:pointer;font-family:inherit}
+  img{max-width:100%;display:block}
+  ::selection{background:var(--ink);color:#fff}
+
+  /* ============ NAV ============ */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 32px;
+    display:flex;align-items:center;justify-content:space-between;
+    transition:all .3s ease;border-bottom:1px solid transparent;
+  }
+  .nav.scrolled{
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(20px) saturate(1.8);
+    -webkit-backdrop-filter:blur(20px) saturate(1.8);
+    border-bottom-color:var(--line);padding:12px 32px;
+  }
+  .logo{
+    display:flex;align-items:center;gap:10px;
+    font-weight:600;font-size:17px;color:var(--char);letter-spacing:-.02em;
+  }
+  .logo-mark{display:inline-flex;align-items:center;gap:2.5px}
+  .logo-mark span{display:block;width:2.5px;border-radius:1px;background:var(--ink)}
+  .logo-mark span:nth-child(1){height:11px}
+  .logo-mark span:nth-child(2){height:16px}
+  .logo-mark span:nth-child(3){height:11px}
+
+  .nav-links{display:flex;gap:4px;align-items:center}
+  .nav-links a{
+    font-size:14px;font-weight:500;color:var(--char);
+    padding:8px 14px;border-radius:6px;transition:background .2s;
+  }
+  .nav-links a:hover{background:var(--bg-alt)}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 18px;font-size:14px;font-weight:500;
+    border-radius:8px;transition:all .2s ease;
+    letter-spacing:-.005em;white-space:nowrap;
+  }
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:var(--ink-hover);transform:translateY(-1px)}
+  .btn-ghost{color:var(--char);border:1px solid var(--line-strong)}
+  .btn-ghost:hover{border-color:var(--char);background:var(--char);color:#fff}
+  .btn svg{width:12px;height:12px;transition:transform .2s}
+  .btn:hover svg{transform:translateX(2px)}
+  .btn-white{background:#fff;color:var(--ink)}
+  .btn-white:hover{background:var(--bg-alt)}
+
+  .nav-mobile-toggle{
+    display:none;width:36px;height:36px;
+    align-items:center;justify-content:center;
+    border-radius:6px;background:var(--char);color:#fff;
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    padding:160px 32px 100px;position:relative;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-inner{max-width:1120px;margin:0 auto}
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:6px 12px 6px 8px;border-radius:999px;
+    border:1px solid var(--line-strong);background:var(--bg);
+    font-size:13px;font-weight:500;color:var(--char);margin-bottom:32px;
+    animation:fadeUp .6s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--ink)}
+  .hero-badge-divider{width:1px;height:12px;background:var(--line-strong);margin:0 2px}
+  .hero-badge-label{color:var(--muted);font-weight:400;font-size:12px}
+
+  .hero h1{
+    font-weight:600;font-size:clamp(44px,6.2vw,82px);
+    line-height:1.02;letter-spacing:-.035em;color:var(--char);
+    margin-bottom:28px;max-width:960px;
+    animation:fadeUp .8s cubic-bezier(.2,.8,.2,1) .1s both;
+  }
+  .hero h1 .accent{color:var(--ink)}
+
+  .hero-sub{
+    font-size:19px;line-height:1.55;color:var(--muted);
+    max-width:620px;margin-bottom:40px;
+    animation:fadeUp .8s cubic-bezier(.2,.8,.2,1) .2s both;
+  }
+  .hero-cta{
+    display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+    animation:fadeUp .8s cubic-bezier(.2,.8,.2,1) .3s both;
+  }
+  .hero-cta .btn{padding:14px 22px;font-size:14.5px}
+
+  .hero-meta{
+    margin-top:72px;padding-top:32px;border-top:1px solid var(--line);
+    display:grid;grid-template-columns:repeat(4,1fr);gap:40px;
+    animation:fadeUp .8s cubic-bezier(.2,.8,.2,1) .45s both;
+  }
+  .hero-meta-item-num{
+    font-size:30px;font-weight:600;color:var(--char);
+    letter-spacing:-.03em;line-height:1;margin-bottom:6px;
+    font-variant-numeric:tabular-nums;
+  }
+  .hero-meta-item-label{font-size:13px;color:var(--muted);font-weight:400}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+
+
+  /* ============ SECTION ICONS ============ */
+  .section-icon{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:40px;height:40px;border-radius:8px;
+    background:var(--bg-alt);margin-bottom:16px;
+    color:var(--ink);border:1px solid var(--line);
+  }
+  .section-icon svg{width:20px;height:20px;stroke-width:1.5}
+
+  /* Dark variant for cases section */
+  .cases .section-icon{
+    background:rgba(255,255,255,.06);
+    border-color:rgba(255,255,255,.1);
+    color:#fff;
+  }
+
+  /* ============ SECTION BASICS ============ */
+  section{padding:120px 32px;position:relative}
+  .container{max-width:1120px;margin:0 auto}
+  .section-head{max-width:760px;margin:0 auto 72px;text-align:center}
+  .section-head.left{text-align:left;margin-left:0}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:500;color:var(--ink);margin-bottom:20px;
+  }
+  .eyebrow::before{content:"";width:16px;height:1px;background:var(--ink)}
+  .section-title{
+    font-weight:600;font-size:clamp(32px,4.4vw,52px);
+    line-height:1.05;letter-spacing:-.03em;color:var(--char);margin-bottom:20px;
+  }
+  .section-title .accent{color:var(--ink)}
+  .section-lead{
+    font-size:18px;line-height:1.55;color:var(--muted);
+    max-width:640px;margin:0 auto;
+  }
+  .section-head.left .section-lead{margin-left:0}
+  .section-alt{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+  /* ============ PROBLEM — Kosten-Rechner-Sektion ============ */
+  .problem-wrap{
+    display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;
+  }
+  .problem-left .section-title{margin-bottom:24px}
+  .problem-left p{
+    font-size:16px;line-height:1.65;color:var(--muted);margin-bottom:20px;
+  }
+  .problem-list{
+    display:flex;flex-direction:column;gap:0;
+    margin-top:32px;
+  }
+  .problem-item{
+    display:grid;grid-template-columns:32px 1fr;gap:16px;
+    padding:16px 0;border-top:1px solid var(--line);align-items:start;
+  }
+  .problem-item:last-child{border-bottom:1px solid var(--line)}
+  .problem-check{
+    width:22px;height:22px;border-radius:50%;
+    background:var(--ink);color:#fff;
+    display:grid;place-items:center;flex-shrink:0;
+  }
+  .problem-check svg{width:11px;height:11px;stroke-width:3}
+  .problem-item-text{font-size:15px;line-height:1.5;color:var(--char);padding-top:2px}
+  .problem-item-text strong{color:var(--char);font-weight:600}
+
+  .cost-card{
+    background:var(--char);color:#fff;border-radius:16px;padding:40px;
+    position:relative;overflow:hidden;
+  }
+  .cost-card::before{
+    content:"";position:absolute;top:0;right:0;width:300px;height:300px;
+    background:radial-gradient(circle at top right, rgba(0,17,128,.3) 0%, transparent 60%);
+    pointer-events:none;
+  }
+  .cost-label{
+    font-size:12px;font-weight:500;opacity:.6;
+    text-transform:uppercase;letter-spacing:.06em;margin-bottom:20px;position:relative;
+  }
+  .cost-question{
+    font-size:22px;font-weight:500;line-height:1.35;letter-spacing:-.02em;
+    margin-bottom:28px;position:relative;
+  }
+  .cost-math{position:relative;margin-bottom:24px;display:flex;flex-direction:column}
+  .cost-math-row{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);
+    font-size:14px;opacity:.85;
+  }
+  .cost-math-row:first-child{padding-top:0}
+  .cost-math-row-result{
+    font-size:16px;font-weight:600;opacity:1;
+    padding-top:18px;border-bottom:none;
+  }
+  .cost-math-value{
+    font-variant-numeric:tabular-nums;font-weight:500;font-size:15px;
+  }
+  .cost-math-row-result .cost-math-value{
+    font-size:26px;font-weight:600;letter-spacing:-.02em;
+  }
+  .cost-math-value.accent{color:#fff}
+  .cost-text{
+    font-size:14px;line-height:1.6;opacity:.65;
+    padding-top:16px;border-top:1px solid rgba(255,255,255,.08);
+    position:relative;
+  }
+
+  /* ============ INTERACTIVE CALCULATOR ============ */
+  .cost-question-accent{
+    color:#fff;
+    background:linear-gradient(180deg,transparent 60%,rgba(255,255,255,.12) 60%);
+    padding:0 2px;
+  }
+  .calc-input-group{
+    margin-bottom:24px;position:relative;
+  }
+  .calc-input-header{
+    display:flex;justify-content:space-between;align-items:baseline;
+    margin-bottom:14px;
+  }
+  .calc-input-header label{
+    font-size:13px;color:rgba(255,255,255,.7);font-weight:400;
+    letter-spacing:-.005em;
+  }
+  .calc-input-value{
+    font-size:20px;font-weight:600;color:#fff;
+    letter-spacing:-.02em;font-variant-numeric:tabular-nums;
+    line-height:1;
+  }
+  .calc-slider{
+    -webkit-appearance:none;appearance:none;
+    width:100%;height:4px;border-radius:999px;
+    background:rgba(255,255,255,.1);
+    outline:none;cursor:pointer;
+    transition:background .2s;
+  }
+  .calc-slider:hover{background:rgba(255,255,255,.15)}
+  .calc-slider::-webkit-slider-thumb{
+    -webkit-appearance:none;appearance:none;
+    width:20px;height:20px;border-radius:50%;
+    background:#fff;cursor:grab;
+    border:2px solid var(--char);
+    box-shadow:0 0 0 2px #fff, 0 4px 12px rgba(0,0,0,.3);
+    transition:transform .15s ease;
+  }
+  .calc-slider::-webkit-slider-thumb:active{cursor:grabbing;transform:scale(1.1)}
+  .calc-slider::-moz-range-thumb{
+    width:20px;height:20px;border-radius:50%;
+    background:#fff;cursor:grab;border:2px solid var(--char);
+    box-shadow:0 0 0 2px #fff, 0 4px 12px rgba(0,0,0,.3);
+  }
+  .calc-range-labels{
+    display:flex;justify-content:space-between;
+    margin-top:8px;font-size:11px;color:rgba(255,255,255,.45);
+    font-variant-numeric:tabular-nums;
+  }
+
+  .calc-result{
+    margin:28px 0 20px;padding:20px 0;
+    border-top:1px solid rgba(255,255,255,.12);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    position:relative;
+  }
+  .calc-result-row{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:6px 0;
+  }
+  .calc-result-label{
+    font-size:14px;color:rgba(255,255,255,.75);font-weight:500;
+  }
+  .calc-result-value{
+    font-size:28px;font-weight:600;color:#fff;
+    letter-spacing:-.025em;font-variant-numeric:tabular-nums;
+    line-height:1;transition:color .2s;
+  }
+  .calc-result-row-year{
+    margin-top:4px;padding-top:12px;
+    border-top:1px dashed rgba(255,255,255,.1);
+  }
+  .calc-result-row-year .calc-result-label{
+    font-size:12px;color:rgba(255,255,255,.5);font-weight:400;
+  }
+  .calc-result-row-year .calc-result-value{
+    font-size:16px;color:rgba(255,255,255,.6);font-weight:500;
+  }
+
+  /* Emphasis-Animation bei Value-Change */
+  .calc-result-value.pulse{animation:calcPulse .4s ease}
+  @keyframes calcPulse{
+    0%{transform:scale(1)}
+    50%{transform:scale(1.05)}
+    100%{transform:scale(1)}
+  }
+
+  .calc-cta{
+    display:inline-flex;align-items:center;gap:10px;
+    background:#fff;color:var(--ink);font-weight:500;font-size:14px;
+    padding:14px 18px;border-radius:8px;
+    margin-top:20px;transition:all .2s ease;
+    letter-spacing:-.005em;line-height:1.3;
+    position:relative;
+  }
+  .calc-cta:hover{
+    background:var(--bg-alt);
+    transform:translateY(-1px);
+  }
+  .calc-cta svg{width:14px;height:14px;flex-shrink:0;transition:transform .2s}
+  .calc-cta:hover svg{transform:translateX(3px)}
+
+  /* ============ ZAHLEN-BAND ============ */
+  .stats{
+    background:var(--char);color:#fff;padding:80px 32px;
+    border-top:1px solid var(--char);border-bottom:1px solid var(--char);
+  }
+  .stats-grid{
+    max-width:1120px;margin:0 auto;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  }
+  .stat-item{
+    padding:0 24px;text-align:center;
+    border-right:1px solid rgba(255,255,255,.12);
+  }
+  .stat-item:last-child{border-right:none}
+  .stat-num{
+    font-size:48px;font-weight:600;letter-spacing:-.04em;
+    line-height:1;margin-bottom:8px;
+    font-variant-numeric:tabular-nums;
+  }
+  .stat-num .small{font-size:28px;opacity:.7}
+  .stat-label{
+    font-size:13px;opacity:.7;line-height:1.4;
+  }
+
+  /* ============ ZIELGRUPPE ============ */
+  .twocol{
+    display:grid;grid-template-columns:1fr 1fr;gap:1px;
+    background:var(--line);border:1px solid var(--line);
+    border-radius:12px;overflow:hidden;
+  }
+  .twocol > div{background:var(--bg);padding:48px 40px;display:flex;flex-direction:column}
+  .twocol-label{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:16px}
+  .twocol h3{
+    font-size:24px;font-weight:600;color:var(--char);
+    letter-spacing:-.02em;line-height:1.2;margin-bottom:16px;
+  }
+  .twocol p{font-size:15px;line-height:1.6;color:var(--muted)}
+  .twocol-image{
+    margin:-48px -40px 28px;
+    aspect-ratio:16/10;
+    overflow:hidden;
+    background:var(--bg-alt);
+    position:relative;
+  }
+  .twocol-image img{
+    width:100%;height:100%;object-fit:cover;
+    filter:grayscale(15%) contrast(1.02);
+    transition:transform .6s cubic-bezier(.2,.8,.2,1), filter .4s;
+  }
+  .twocol-image::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(0,17,128,0) 0%, rgba(0,17,128,.08) 100%);
+    pointer-events:none;
+  }
+  .twocol > div:hover .twocol-image img{
+    transform:scale(1.03);filter:grayscale(0%) contrast(1);
+  }
+
+
+
+  /* ============ IMAGE BREAK ============ */
+  .image-break{
+    position:relative;width:100%;height:min(520px,60vh);
+    overflow:hidden;background:var(--char);
+  }
+  .image-break img{
+    width:100%;height:100%;object-fit:cover;
+    filter:grayscale(20%) contrast(1.05) brightness(.85);
+  }
+  .image-break-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(90deg, rgba(10,10,15,.85) 0%, rgba(10,10,15,.3) 60%, transparent 100%);
+    display:flex;align-items:center;
+    padding:0 32px;
+  }
+  .image-break-content{
+    max-width:1120px;margin:0 auto;width:100%;
+    color:#fff;max-width:520px;
+  }
+  .image-break-label{
+    font-size:12px;font-weight:500;color:rgba(255,255,255,.7);
+    text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;
+  }
+  .image-break-text{
+    font-size:clamp(22px,2.6vw,32px);font-weight:500;
+    line-height:1.25;letter-spacing:-.02em;
+  }
+
+  /* ============ VIDEO SECTION ============ */
+  .videos{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .video-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+    margin-bottom:32px;
+  }
+  .video-card{
+    display:flex;flex-direction:column;
+    background:var(--bg);border:1px solid var(--line);
+    border-radius:12px;overflow:hidden;
+    transition:all .3s cubic-bezier(.2,.8,.2,1);
+    text-decoration:none;color:inherit;
+  }
+  .video-card:hover{
+    transform:translateY(-4px);
+    border-color:var(--line-strong);
+    box-shadow:0 30px 60px -30px rgba(0,17,128,.25);
+  }
+  .video-thumb{
+    position:relative;aspect-ratio:9/14;
+    background:var(--char);overflow:hidden;
+  }
+  /* Echte Foto-Stills als Thumbs — nutzen bestehende Bilder mit Vignette */
+  .video-thumb{
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.1) 0%, rgba(0,0,0,.6) 100%),
+      url('images/foto-mechanikerin.jpg') center/cover no-repeat,
+      var(--char);
+  }
+  .video-thumb-2{
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.1) 0%, rgba(0,0,0,.6) 100%),
+      url('images/foto-elektroniker.jpg') center/cover no-repeat,
+      var(--char);
+  }
+  .video-thumb-3{
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.1) 0%, rgba(0,0,0,.6) 100%),
+      url('images/foto-team-moment.jpg') center/cover no-repeat,
+      var(--char);
+  }
+  .video-play{
+    position:absolute;top:50%;left:50%;
+    transform:translate(-50%,-50%);z-index:2;
+    width:64px;height:64px;border-radius:50%;
+    background:rgba(255,255,255,.95);color:var(--ink);
+    display:grid;place-items:center;
+    transition:all .3s cubic-bezier(.2,.8,.2,1);
+    backdrop-filter:blur(8px);
+  }
+  .video-play svg{width:26px;height:26px;margin-left:3px}
+  .video-card:hover .video-play{
+    transform:translate(-50%,-50%) scale(1.1);
+    background:#fff;
+    box-shadow:0 0 0 8px rgba(255,255,255,.15);
+  }
+  .video-shimmer{
+    position:absolute;inset:0;z-index:1;
+    background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.15) 50%,transparent 60%);
+    transform:translateX(-100%);
+    transition:transform .8s ease;
+    pointer-events:none;
+  }
+  .video-card:hover .video-shimmer{transform:translateX(100%)}
+  .video-meta{
+    padding:18px 22px;
+    border-top:1px solid var(--line);
+    background:var(--bg);
+  }
+  .video-label{
+    font-size:11px;font-weight:500;color:var(--ink);
+    text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;
+  }
+  .video-title{
+    font-size:16px;font-weight:600;color:var(--char);
+    letter-spacing:-.01em;line-height:1.3;
+  }
+  .videos-note{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:13px;color:var(--muted);padding:10px 16px;
+    border:1px solid var(--line);border-radius:999px;background:var(--bg);
+  }
+  .videos-note-dot{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--ink);
+    box-shadow:0 0 0 4px rgba(0,17,128,.15);
+    animation:pulseDot 2.4s ease-in-out infinite;
+  }
+  @keyframes pulseDot{
+    0%,100%{box-shadow:0 0 0 4px rgba(0,17,128,.15)}
+    50%{box-shadow:0 0 0 8px rgba(0,17,128,.05)}
+  }
+
+  /* ============ METHODE ============ */
+  .method-list{display:flex;flex-direction:column}
+  .method-row{
+    display:grid;grid-template-columns:200px 1fr 1fr;gap:40px;
+    padding:48px 0;border-bottom:1px solid var(--line);align-items:start;
+  }
+  .method-row:first-child{border-top:1px solid var(--line)}
+  .method-label{font-size:13px;font-weight:500;color:var(--ink);padding-top:4px}
+  .method-label-step{
+    font-size:11px;color:var(--muted);font-weight:500;
+    margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em;
+  }
+  .method-title{
+    font-size:28px;font-weight:600;color:var(--char);
+    letter-spacing:-.025em;line-height:1.15;
+  }
+  .method-title-sub{
+    display:block;color:var(--muted);font-weight:400;
+    font-size:17px;margin-top:10px;letter-spacing:-.01em;line-height:1.5;
+  }
+  .method-bullets{list-style:none;display:flex;flex-direction:column;gap:14px;padding-top:6px}
+  .method-bullets li{
+    font-size:14.5px;line-height:1.5;color:var(--char);
+    padding-left:22px;position:relative;
+  }
+  .method-bullets li::before{
+    content:"";position:absolute;left:0;top:9px;
+    width:12px;height:2px;background:var(--ink);
+  }
+
+
+  /* Team-Moment-Figur zwischen Methode-Schritten */
+  .method-figure{
+    margin:16px 0;border-radius:12px;overflow:hidden;
+    border:1px solid var(--line);background:var(--bg);
+    display:grid;grid-template-columns:1.3fr 1fr;align-items:stretch;
+  }
+  .method-figure img{
+    width:100%;height:100%;object-fit:cover;
+    aspect-ratio:4/3;
+    filter:grayscale(8%);
+    transition:filter .4s ease;
+  }
+  .method-figure:hover img{filter:grayscale(0%)}
+  .method-figure figcaption{
+    padding:32px 36px;
+    font-size:16px;line-height:1.55;color:var(--muted);
+    font-style:italic;
+    display:flex;align-items:center;
+    border-left:1px solid var(--line);
+    background:var(--bg-soft);
+  }
+
+  /* ============ ERWARTUNGEN ============ */
+  .expect-list{display:flex;flex-direction:column}
+  .expect-row{
+    display:grid;grid-template-columns:60px 1fr 1.3fr;gap:40px;
+    padding:36px 0;border-bottom:1px solid var(--line);align-items:start;
+  }
+  .expect-row:first-child{border-top:1px solid var(--line)}
+  .expect-num{
+    font-size:14px;font-weight:500;color:var(--ink);
+    padding-top:4px;font-variant-numeric:tabular-nums;
+  }
+  .expect-title{
+    font-size:20px;font-weight:600;color:var(--char);
+    letter-spacing:-.015em;line-height:1.25;
+  }
+  .expect-desc{font-size:14.5px;line-height:1.6;color:var(--muted);padding-top:4px}
+
+  /* ============ CASES (dark) ============ */
+  .cases{background:var(--char);color:#fff;border-top:1px solid var(--char);border-bottom:1px solid var(--char)}
+  .cases .eyebrow{color:#fff;opacity:.65}
+  .cases .eyebrow::before{background:#fff}
+  .cases .section-title{color:#fff}
+  .cases .section-title .accent{color:#fff}
+  .cases .section-lead{color:rgba(255,255,255,.65)}
+  .case-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .case-card{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.1);
+    padding:40px 36px;border-radius:12px;transition:all .2s;
+  }
+  .case-card:hover{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.18)}
+  .case-row{margin-bottom:24px}
+  .case-label{
+    font-size:12px;font-weight:500;opacity:.5;
+    text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;
+  }
+  .case-text{font-size:15px;line-height:1.6;opacity:.9}
+  .case-results{
+    list-style:none;display:flex;flex-direction:column;gap:10px;
+    padding-top:24px;border-top:1px solid rgba(255,255,255,.1);
+  }
+  .case-results li{
+    font-size:14px;font-weight:500;padding-left:22px;
+    position:relative;color:rgba(255,255,255,.9);
+  }
+  .case-results li::before{
+    content:"";position:absolute;left:0;top:9px;
+    width:12px;height:2px;background:#fff;
+  }
+
+  /* ============ TESTIMONIALS ============ */
+  .testimonials-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  }
+  .testimonial{
+    background:var(--bg);border:1px solid var(--line);border-radius:12px;
+    padding:32px 28px;display:flex;flex-direction:column;
+    transition:all .2s;position:relative;
+  }
+  .testimonial:hover{
+    border-color:var(--line-strong);
+    transform:translateY(-3px);
+    box-shadow:0 20px 50px -25px rgba(0,17,128,.15);
+  }
+  .testimonial-mark{
+    font-family:Georgia, serif;font-size:48px;line-height:.6;
+    color:var(--ink);opacity:.25;margin-bottom:4px;
+    font-weight:400;letter-spacing:-.05em;
+  }
+  .testimonial-quote{
+    font-size:15px;line-height:1.6;color:var(--char);
+    margin-bottom:24px;flex:1;
+  }
+  .testimonial-author{
+    display:flex;align-items:center;gap:12px;
+    padding-top:20px;border-top:1px solid var(--line);
+  }
+  .testimonial-avatar{
+    width:40px;height:40px;border-radius:50%;flex-shrink:0;
+    background:var(--bg-alt);display:grid;place-items:center;
+    font-size:14px;font-weight:600;color:var(--char);
+    border:1px solid var(--line);
+  }
+  .testimonial-name{font-size:14px;font-weight:600;color:var(--char);line-height:1.2;margin-bottom:2px}
+  .testimonial-company{font-size:12px;color:var(--muted);line-height:1.3}
+  .testimonial-meta{font-size:13px;font-weight:600;color:var(--char);line-height:1.3;margin-bottom:2px}
+  .testimonial-context{font-size:12.5px;color:var(--muted);line-height:1.4}
+  .testimonials-note{
+    max-width:720px;margin:48px auto 0;text-align:center;
+    font-size:13px;color:var(--muted);line-height:1.55;
+    padding:20px 24px;border:1px solid var(--line);border-radius:8px;
+    background:var(--bg-soft);
+  }
+
+  /* ============ PROZESS ============ */
+  .process-list{display:flex;flex-direction:column}
+  .process-row{
+    display:grid;grid-template-columns:80px 1fr 1.4fr;gap:40px;
+    padding:40px 0;border-bottom:1px solid var(--line);align-items:start;
+  }
+  .process-row:first-child{border-top:1px solid var(--line)}
+
+  .process-num-wrap{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+    .process-num{
+    font-size:32px;font-weight:300;color:var(--ink);line-height:1;
+    letter-spacing:-.03em;font-variant-numeric:tabular-nums;
+  }
+  .process-title{
+    font-size:22px;font-weight:600;color:var(--char);
+    letter-spacing:-.02em;line-height:1.2;padding-top:6px;
+  }
+  .process-desc{font-size:15px;line-height:1.6;color:var(--muted);padding-top:8px}
+
+  /* ============ UNTERSCHIED ============ */
+  .diff-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    border:1px solid var(--line);border-radius:12px;overflow:hidden;
+  }
+  .diff-card{
+    padding:40px 36px;background:var(--bg);
+    border-right:1px solid var(--line);transition:background .2s;
+  }
+  .diff-card:last-child{border-right:none}
+  .diff-card:hover{background:var(--bg-soft)}
+  .diff-card h3{
+    font-size:19px;font-weight:600;color:var(--char);
+    letter-spacing:-.015em;line-height:1.25;margin-bottom:14px;
+  }
+  .diff-card p{font-size:14.5px;line-height:1.6;color:var(--muted)}
+
+  /* ============ COMPARISON TABLE ============ */
+  .compare{
+    border:1px solid var(--line);border-radius:12px;
+    overflow:hidden;background:var(--bg);
+  }
+  .compare-head{
+    display:grid;grid-template-columns:1.3fr 1fr 1fr;
+    border-bottom:1px solid var(--line);background:var(--bg-soft);
+  }
+  .compare-head > div{
+    padding:20px 24px;font-size:13px;font-weight:500;
+    color:var(--muted);letter-spacing:.02em;
+  }
+  .compare-head .us{
+    color:var(--ink);font-weight:600;
+    display:flex;align-items:center;gap:6px;
+    background:var(--bg);
+  }
+  .compare-head .them{border-left:1px solid var(--line)}
+  .compare-row{
+    display:grid;grid-template-columns:1.3fr 1fr 1fr;
+    border-bottom:1px solid var(--line);
+  }
+  .compare-row:last-child{border-bottom:none}
+  .compare-row > div{
+    padding:20px 24px;font-size:14.5px;line-height:1.5;
+    display:flex;align-items:center;gap:10px;
+  }
+  .compare-row .label{color:var(--char);font-weight:500}
+  .compare-row .us-cell{color:var(--char)}
+  .compare-row .them-cell{color:var(--muted);border-left:1px solid var(--line)}
+  .compare-yes,.compare-no{
+    width:18px;height:18px;border-radius:50%;flex-shrink:0;
+    display:grid;place-items:center;
+  }
+  .compare-yes{background:var(--ink);color:#fff}
+  .compare-no{background:var(--bg-alt);color:var(--muted)}
+  .compare-yes svg,.compare-no svg{width:10px;height:10px;stroke-width:3}
+
+  /* ============ TEAM ============ */
+  .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .team-card{padding:4px 0}
+  .team-avatar{
+    width:100%;aspect-ratio:1;border-radius:12px;background:var(--bg-alt);
+    display:grid;place-items:center;font-size:28px;font-weight:500;
+    color:var(--char);letter-spacing:-.01em;margin-bottom:20px;
+    border:1px solid var(--line);transition:background .2s;
+  }
+  .team-card:hover .team-avatar{background:var(--bg-soft)}
+  .team-card h3{
+    font-size:16px;font-weight:600;color:var(--char);
+    letter-spacing:-.01em;line-height:1.2;margin-bottom:4px;
+  }
+  .team-card .role{font-size:13px;color:var(--muted);line-height:1.4}
+
+  .standort-card{
+    margin-top:60px;padding:40px;border:1px solid var(--line);border-radius:12px;
+    display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;background:var(--bg);
+  }
+  .standort-label{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:8px}
+  .standort-title{
+    font-size:20px;font-weight:600;color:var(--char);
+    letter-spacing:-.015em;line-height:1.3;margin-bottom:6px;
+  }
+  .standort-text{font-size:14.5px;line-height:1.55;color:var(--muted);max-width:560px}
+
+  /* ============ POTENZIAL-CHECK (Highlight-CTA-Block) ============ */
+  .potential{
+    background:var(--ink);color:#fff;padding:80px 48px;border-radius:16px;
+    display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+    position:relative;overflow:hidden;
+  }
+  .potential::before{
+    content:"";position:absolute;top:-50%;right:-10%;
+    width:500px;height:500px;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,255,255,.08) 0%,transparent 70%);
+    pointer-events:none;
+  }
+  .potential-label{
+    font-size:13px;font-weight:500;opacity:.75;
+    text-transform:uppercase;letter-spacing:.06em;margin-bottom:18px;
+  }
+  .potential h3{
+    font-size:36px;font-weight:600;line-height:1.1;
+    letter-spacing:-.025em;margin-bottom:16px;
+  }
+  .potential p{
+    font-size:16px;line-height:1.6;opacity:.8;margin-bottom:28px;max-width:420px;
+  }
+  .potential-list{
+    list-style:none;display:flex;flex-direction:column;gap:14px;
+    position:relative;
+  }
+  .potential-list li{
+    display:flex;gap:12px;font-size:14.5px;line-height:1.5;
+    color:rgba(255,255,255,.88);
+  }
+  .potential-list svg{
+    width:18px;height:18px;flex-shrink:0;margin-top:2px;
+    stroke:#fff;opacity:.8;
+  }
+
+  /* ============ FAQ ============ */
+  .faq-list{max-width:780px;margin:0 auto}
+  .faq-item{border-bottom:1px solid var(--line)}
+  .faq-item:first-child{border-top:1px solid var(--line)}
+  .faq-q{
+    width:100%;text-align:left;padding:24px 0;
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+    font-size:17px;font-weight:500;color:var(--char);
+    letter-spacing:-.01em;cursor:pointer;transition:color .2s;
+  }
+  .faq-q:hover{color:var(--ink)}
+  .faq-icon{
+    width:28px;height:28px;border-radius:50%;flex-shrink:0;
+    border:1px solid var(--line-strong);display:grid;place-items:center;
+    transition:transform .3s ease, background .2s, color .2s;color:var(--char);
+  }
+  .faq-item.active .faq-icon{
+    background:var(--ink);border-color:var(--ink);color:#fff;transform:rotate(45deg);
+  }
+  .faq-icon svg{width:12px;height:12px;stroke-width:2}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.2,.8,.2,1)}
+  .faq-item.active .faq-a{max-height:400px}
+  .faq-a-inner{
+    padding-bottom:24px;font-size:15.5px;line-height:1.65;
+    color:var(--muted);max-width:640px;
+  }
+
+  /* ============ FINAL CTA ============ */
+  .final-cta{padding:140px 32px;text-align:center;border-top:1px solid var(--line)}
+  .final-cta-notice{
+    display:inline-block;padding:5px 12px;border-radius:999px;
+    background:var(--bg-alt);font-size:13px;color:var(--muted);margin-bottom:28px;
+  }
+  .final-cta h2{
+    font-weight:600;font-size:clamp(36px,5vw,60px);
+    line-height:1.04;letter-spacing:-.03em;margin-bottom:22px;
+    max-width:780px;margin-left:auto;margin-right:auto;color:var(--char);
+  }
+  .final-cta p{
+    font-size:17px;line-height:1.55;color:var(--muted);
+    margin-bottom:36px;max-width:560px;margin-left:auto;margin-right:auto;
+  }
+  .final-cta .btn{padding:15px 26px;font-size:15px}
+  .final-cta-small{font-size:13px;color:var(--muted);margin-top:20px}
+
+  /* ============ FOOTER ============ */
+  footer{border-top:1px solid var(--line);padding:56px 32px 32px;background:var(--bg)}
+  .footer-grid{
+    max-width:1120px;margin:0 auto;
+    display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;
+    padding-bottom:36px;border-bottom:1px solid var(--line);
+  }
+  .footer-brand .logo{margin-bottom:18px}
+  .footer-tagline{font-size:14px;line-height:1.55;color:var(--muted);max-width:360px}
+  .footer-address{font-size:13px;line-height:1.55;color:var(--muted);margin-top:14px}
+  .footer-col h5{
+    font-size:12px;font-weight:500;color:var(--muted);
+    margin-bottom:16px;text-transform:uppercase;letter-spacing:.06em;
+  }
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .footer-col a{font-size:14px;color:var(--char);transition:color .2s}
+  .footer-col a:hover{color:var(--ink)}
+  .footer-bottom{
+    max-width:1120px;margin:24px auto 0;
+    display:flex;justify-content:space-between;gap:20px;
+    font-size:12px;color:var(--muted);
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 960px){
+    .nav{padding:12px 20px}.nav.scrolled{padding:10px 20px}
+    .nav-links{display:none}.nav-mobile-toggle{display:flex}
+    .hero{padding:130px 20px 80px}
+    .hero-meta{grid-template-columns:repeat(2,1fr);gap:24px;margin-top:60px}
+    section{padding:80px 20px}
+    .problem-wrap{grid-template-columns:1fr;gap:40px}
+    .cost-card{padding:32px 28px}
+    .cost-number{font-size:56px}
+    .stats{padding:56px 20px}
+    .stats-grid{grid-template-columns:repeat(2,1fr);gap:24px}
+    .stat-item{border-right:none;padding:24px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+    .stat-item:nth-child(even){border-bottom:1px solid rgba(255,255,255,.12)}
+    .stat-item:nth-last-child(-n+2){border-bottom:none}
+    .stat-num{font-size:36px}
+    .image-break{height:320px}
+    .image-break-overlay{padding:0 20px}
+    .video-grid{grid-template-columns:1fr;gap:14px}
+    .video-thumb{aspect-ratio:16/11}
+    .method-row{grid-template-columns:1fr;gap:20px;padding:36px 0}
+    .method-figure{grid-template-columns:1fr}
+    .method-figure figcaption{padding:20px 24px;border-left:none;border-top:1px solid var(--line);font-size:14.5px}
+    .twocol{grid-template-columns:1fr}
+    .twocol > div{padding:36px 28px}
+    .twocol-image{margin:-36px -28px 24px}
+    .expect-row{grid-template-columns:40px 1fr;gap:20px}
+    .expect-row > :last-child{grid-column:1 / -1;margin-top:-10px;padding-top:0}
+    .case-grid{grid-template-columns:1fr;gap:16px}
+    .testimonials-grid{grid-template-columns:1fr;gap:14px}
+    .process-row{grid-template-columns:60px 1fr;gap:20px}
+    .process-row > :last-child{grid-column:1 / -1;margin-top:-16px;padding-top:0}
+    .diff-grid{grid-template-columns:1fr}
+    .diff-card{border-right:none;border-bottom:1px solid var(--line)}
+    .diff-card:last-child{border-bottom:none}
+    .compare-head > div,.compare-row > div{padding:14px 12px;font-size:13px}
+    .compare-row .label{font-size:13px}
+    .team-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+    .standort-card{grid-template-columns:1fr;gap:24px;padding:28px}
+    .potential{grid-template-columns:1fr;padding:48px 28px;gap:32px}
+    .potential h3{font-size:28px}
+    .final-cta{padding:90px 20px}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:30px}
+    .footer-bottom{flex-direction:column;gap:8px}
+  }
+  @media (max-width: 520px){
+    .hero h1{font-size:40px}
+    .team-grid{grid-template-columns:1fr}
+    .footer-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#" class="logo" aria-label="Das Dreiwerk Startseite">
+    <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+    Das Dreiwerk
+  </a>
+  <div class="nav-links">
+    <a href="#methode">Methode</a>
+    <a href="#prozess">Prozess</a>
+    <a href="#cases">Typische Fälle</a>
+    <a href="#team">Über uns</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <a href="#kontakt" class="btn btn-primary">
+    Erstgespräch vereinbaren
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </a>
+  <button class="nav-mobile-toggle" aria-label="Menü öffnen">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      <span>Neu: Jetzt auch für SHK & Elektro</span>
+      <span class="hero-badge-divider"></span>
+      <span class="hero-badge-label">Seit 2021</span>
+    </div>
+    <h1>
+      Planbar qualifizierte Fachkräfte für SHK-Betriebe und Elektriker. <span class="accent">In 6 bis 10 Wochen besetzt.</span>
+    </h1>
+    <p class="hero-sub">
+      Ein klares 3-Schritte-System, das Ihre Arbeitgebermarke stärkt, passende Bewerber anzieht und offene Schlüsselpositionen zuverlässig besetzt – ohne Headhunter, ohne Streuverluste.
+    </p>
+    <div class="hero-cta">
+      <a href="#kontakt" class="btn btn-primary">
+        Kostenloses Erstgespräch vereinbaren
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#methode" class="btn btn-ghost">Methode ansehen</a>
+    </div>
+
+    <div class="hero-meta">
+      <div>
+        <div class="hero-meta-item-num">50+</div>
+        <div class="hero-meta-item-label">Betriebe bundesweit begleitet</div>
+      </div>
+      <div>
+        <div class="hero-meta-item-num">6–10</div>
+        <div class="hero-meta-item-label">Wochen bis zur Einstellung</div>
+      </div>
+      <div>
+        <div class="hero-meta-item-num">100%</div>
+        <div class="hero-meta-item-label">Fokus auf SHK & Elektro</div>
+      </div>
+      <div>
+        <div class="hero-meta-item-num">Hannover</div>
+        <div class="hero-meta-item-label">Standort mit DACH-Reichweite</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM mit Kosten-Rechner -->
+<section id="problem">
+  <div class="container">
+    <div class="section-head left">
+      <div class="eyebrow">Die ehrliche Rechnung</div>
+      <h2 class="section-title">Was Sie eine offene Stelle <span class="accent">jeden Monat kostet.</span></h2>
+    </div>
+
+    <div class="problem-wrap">
+      <div class="problem-left">
+        <p>Während Sie noch über Stellenanzeigen nachdenken, verliert Ihr Betrieb messbar Geld. Jeder Monat ohne besetzte Position schlägt sich doppelt nieder: verlorener Umsatz durch abgelehnte Aufträge plus steigender Druck auf das bestehende Team.</p>
+        <p>Und das ist nur die betriebswirtschaftliche Seite. Dazu kommen Qualitätseinbußen, Krankenstand und mittelfristig Kündigungen von Leistungsträgern, die das Dauer-Limit nicht mehr mittragen.</p>
+
+        <div class="problem-list">
+          <div class="problem-item">
+            <span class="problem-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div class="problem-item-text">Jede unbesetzte Stelle bedeutet <strong>abgelehnte Aufträge</strong> – und damit direkt verpasste Umsätze, Monat für Monat.</div>
+          </div>
+          <div class="problem-item">
+            <span class="problem-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div class="problem-item-text">Überlastete Teams erhöhen <strong>Krankenstand und Fehler­quoten</strong> – und gute Leute kündigen, weil sie das Dauer-Limit nicht mehr mittragen.</div>
+          </div>
+          <div class="problem-item">
+            <span class="problem-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div class="problem-item-text">Klassische Stellenanzeigen brauchen oft <strong>6–12 Monate</strong> für eine Facharbeiter-Besetzung – wenn sie überhaupt wirken.</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="cost-card" id="costCalc">
+        <div class="cost-label">Ihr persönlicher Rechner</div>
+        <div class="cost-question">Wie viel kostet Sie der Personalmangel – <span class="cost-question-accent">jeden Monat?</span></div>
+
+        <div class="calc-input-group">
+          <div class="calc-input-header">
+            <label for="calcOrders">Abgelehnte Aufträge pro Monat</label>
+            <div class="calc-input-value" id="calcOrdersValue">4</div>
+          </div>
+          <input type="range" id="calcOrders" min="1" max="20" value="4" step="1" class="calc-slider" />
+          <div class="calc-range-labels"><span>1</span><span>20+</span></div>
+        </div>
+
+        <div class="calc-input-group">
+          <div class="calc-input-header">
+            <label for="calcVolume">Ø Auftragsvolumen</label>
+            <div class="calc-input-value"><span id="calcVolumeValue">2.800</span> €</div>
+          </div>
+          <input type="range" id="calcVolume" min="500" max="15000" value="2800" step="100" class="calc-slider" />
+          <div class="calc-range-labels"><span>500 €</span><span>15.000 €</span></div>
+        </div>
+
+        <div class="calc-result">
+          <div class="calc-result-row">
+            <span class="calc-result-label">Entgangener Umsatz / Monat</span>
+            <span class="calc-result-value" id="calcMonth">11.200 €</span>
+          </div>
+          <div class="calc-result-row calc-result-row-year">
+            <span class="calc-result-label">Pro Jahr</span>
+            <span class="calc-result-value" id="calcYear">134.400 €</span>
+          </div>
+        </div>
+
+        <div class="cost-text">Plus Folgekosten: Fluktuation, Überstunden, Image­verlust bei Stammkunden, die auf Termine warten müssen. Die eigentliche Rechnung ist deutlich größer.</div>
+
+        <a href="#kontakt" class="calc-cta">
+          Jetzt Erstgespräch sichern – bevor Sie weiter Umsatz verlieren
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+
+<!-- IMAGE BREAK: Visueller Übergang zwischen Hero und Problem -->
+<div class="image-break">
+  <img src="images/foto-industriemonteur.jpg" alt="Industriemonteur im Einsatz – die Fachkräfte, die Sie suchen" loading="lazy" />
+  <div class="image-break-overlay">
+    <div class="image-break-content">
+      <div class="image-break-label">Die Menschen, die Ihr Betrieb braucht</div>
+      <div class="image-break-text">Fachkräfte, die heute selten über klassische Stellenanzeigen zu finden sind – aber täglich in sozialen Netzwerken erreichbar.</div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAND -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-num">seit <span class="small">2021</span></div>
+      <div class="stat-label">Planbares Recruiting</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">50<span class="small">+</span></div>
+      <div class="stat-label">Betriebe als Partner</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">6–10<span class="small"> Wo.</span></div>
+      <div class="stat-label">Bis zur Einstellung</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100<span class="small">%</span></div>
+      <div class="stat-label">Fokus auf Handwerk</div>
+    </div>
+  </div>
+</section>
+
+<!-- ZIELGRUPPE -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Für wen unser System geeignet ist</div>
+      <h2 class="section-title">Für Handwerksbetriebe, die <span class="accent">wachsen wollen.</span></h2>
+    </div>
+    <div class="twocol">
+      <div>
+        <div class="twocol-image">
+          <img src="images/foto-mechanikerin.jpg" alt="Junge Mechanikerin im Betrieb – typische Fachkraft, die wir über Social Media ansprechen" loading="lazy" />
+        </div>
+        <div class="twocol-label">Zielgruppe 1</div>
+        <h3>Inhabergeführte SHK- und Elektrobetriebe</h3>
+        <p>Als Inhaber tragen Sie Verantwortung für Aufträge, Qualität und Ihr Team. Wenn offene Stellen Ihr Wachstum bremsen oder Ihre Monteure dauerhaft am Limit arbeiten, helfen wir Ihnen, planbar passende Fachkräfte zu gewinnen.</p>
+      </div>
+      <div>
+        <div class="twocol-image">
+          <img src="images/foto-elektroniker.jpg" alt="Elektroniker am Schaltschrank – zufrieden und motiviert bei der Arbeit" loading="lazy" />
+        </div>
+        <div class="twocol-label">Zielgruppe 2</div>
+        <h3>Mittelständische Handwerksbetriebe</h3>
+        <p>Wenn Sie mehrere Baustellen und Kundendienste parallel steuern und qualifizierte Mitarbeiter brauchen, um Termine einzuhalten und Qualität zu sichern, entwickeln wir eine Recruiting-Strategie, die zu Ihrer Betriebskultur passt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODE -->
+<section id="methode">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Das 3-Schritte-System</div>
+      <h2 class="section-title">Drei Werke. <span class="accent">Ein System.</span></h2>
+      <p class="section-lead">Wir helfen SHK-Betrieben und Elektrikern, ihre Mitarbeitergewinnung strategisch aufzubauen – mit klarer Positionierung, gezielter Ansprache und strukturiertem Prozess.</p>
+    </div>
+
+    <div class="method-list">
+      <div class="method-row">
+        <div class="method-label">
+          <div class="section-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+          </div>
+          <div class="method-label-step">Schritt 01</div>
+          Positionierung
+        </div>
+        <div>
+          <div class="method-title">Arbeitgebermarke entwickeln
+            <span class="method-title-sub">Wir analysieren Ihre Stärken und formen eine Positionierung, die Monteure und Elektroniker emotional anspricht.</span>
+          </div>
+        </div>
+        <ul class="method-bullets">
+          <li>Positionierungs-Workshop mit Ihnen</li>
+          <li>Content-Produktion vor Ort im Betrieb</li>
+          <li>Regionale Sichtbarkeit gezielt aufbauen</li>
+        </ul>
+      </div>
+
+      <!-- Team-Moment-Bild als Beleg für echtes Employer Branding -->
+      <figure class="method-figure">
+        <img src="images/foto-team-moment.jpg" alt="Gelebtes Employer Branding – Chef und Mitarbeiter im Arbeitsalltag" loading="lazy" />
+        <figcaption>Echte Momente statt inszenierter Stockfotos. Genau so entsteht authentische Arbeitgeber-Kommunikation, die Fachkräfte überzeugt.</figcaption>
+      </figure>
+
+      <div class="method-row">
+        <div class="method-label">
+          <div class="section-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <div class="method-label-step">Schritt 02</div>
+          Ansprache
+        </div>
+        <div>
+          <div class="method-title">Gezielte Fachkräfte-Ansprache
+            <span class="method-title-sub">Über datenbasierte Kampagnen erreichen wir genau die Fachkräfte, die zu Ihrem Betrieb passen.</span>
+          </div>
+        </div>
+        <ul class="method-bullets">
+          <li>Paid-Kampagnen auf Meta und weiteren Kanälen</li>
+          <li>Zielgruppen-Targeting nach Region und Profil</li>
+          <li>Ansprache aktiver und passiver Kandidaten</li>
+        </ul>
+      </div>
+
+      <div class="method-row">
+        <div class="method-label">
+          <div class="section-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+          </div>
+          <div class="method-label-step">Schritt 03</div>
+          Auswahl
+        </div>
+        <div>
+          <div class="method-title">Strukturierter Auswahlprozess
+            <span class="method-title-sub">Ein klarer Bewerbungsprozess, der Geschwindigkeit, Professionalität und Wertschätzung verbindet.</span>
+          </div>
+        </div>
+        <ul class="method-bullets">
+          <li>Telefonische Vorqualifizierung durch unser Team</li>
+          <li>Termine direkt in Ihrem Kalender</li>
+          <li>Bewerber-Pipeline für Wachstum und Ausfälle</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- VIDEOS — Social Proof durch echte Recruiting-Videos -->
+<section class="videos">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Echte Videos. Echte Menschen.</div>
+      <h2 class="section-title">Warum Handwerker sich <span class="accent">bei uns melden.</span></h2>
+      <p class="section-lead">Statt aufgesetzter Stockfotos produzieren wir authentische Kurzvideos direkt im Betrieb. Die Fachkräfte sehen Ihre Werkstatt, Ihr Team und Ihren Alltag – und entscheiden, ob das ihre neue berufliche Heimat sein könnte.</p>
+    </div>
+
+    <div class="video-grid">
+      <a class="video-card" href="https://maximilian.picflow.com/01hhya4uFlvg4CEl/asset_ZqC9du32viDYwCID?autoplay=true" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <div class="video-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="video-shimmer" aria-hidden="true"></div>
+        </div>
+        <div class="video-meta">
+          <div class="video-label">Recruiting-Video</div>
+          <div class="video-title">Arbeitgeber-Portrait I</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://maximilian.picflow.com/01hhya4uFlvg4CEl/asset_rzgbDgGfReXW72kF?autoplay=true" target="_blank" rel="noopener">
+        <div class="video-thumb video-thumb-2">
+          <div class="video-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="video-shimmer" aria-hidden="true"></div>
+        </div>
+        <div class="video-meta">
+          <div class="video-label">Recruiting-Video</div>
+          <div class="video-title">Arbeitgeber-Portrait II</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://maximilian.picflow.com/01hhya4uFlvg4CEl/asset_U82B2eMMIEJJtjFI?autoplay=true" target="_blank" rel="noopener">
+        <div class="video-thumb video-thumb-3">
+          <div class="video-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="video-shimmer" aria-hidden="true"></div>
+        </div>
+        <div class="video-meta">
+          <div class="video-label">Recruiting-Video</div>
+          <div class="video-title">Arbeitgeber-Portrait III</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="videos-note">
+      <span class="videos-note-dot"></span>
+      Alle Videos in Eigenproduktion – Drehtag direkt im Betrieb, Schnitt in unserem Studio in Hannover.
+    </div>
+  </div>
+</section>
+
+<!-- ERWARTUNGEN -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Was Sie erwarten können</div>
+      <h2 class="section-title">Was eine Zusammenarbeit <span class="accent">konkret liefert.</span></h2>
+    </div>
+    <div class="expect-list">
+      <div class="expect-row">
+        <div class="expect-num">01</div>
+        <div class="expect-title">Maßgeschneiderte Recruiting-Strategien</div>
+        <div class="expect-desc">Individuelle Konzepte statt Standardlösungen – abgestimmt auf Ihre Betriebsgröße, Ihre Gewerke und Ihre Kultur. Kein Copy-Paste-Playbook.</div>
+      </div>
+      <div class="expect-row">
+        <div class="expect-num">02</div>
+        <div class="expect-title">Branchenverständnis und strategische Klarheit</div>
+        <div class="expect-desc">Wir verstehen die Dynamik zwischen Baustelle, Kundendienst und Büro – und positionieren Sie so, dass die richtigen Fachkräfte sich angesprochen fühlen.</div>
+      </div>
+      <div class="expect-row">
+        <div class="expect-num">03</div>
+        <div class="expect-title">Messbare Ergebnisse statt leere Versprechen</div>
+        <div class="expect-desc">Transparente Prozesse, datenbasierte Kampagnen, wöchentliche Reports. Sie wissen jederzeit, was passiert und was es bringt.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section class="cases" id="cases">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Typische Fälle</div>
+      <h2 class="section-title">Typische Ausgangslagen <span class="accent">aus der Praxis.</span></h2>
+      <p class="section-lead">Zwei typische Ausgangslagen, wie wir sie bei Handwerksbetrieben immer wieder sehen — und wie unser 3-Schritte-System darauf antwortet.</p>
+    </div>
+    <div class="case-grid">
+      <article class="case-card">
+        <div class="case-row">
+          <div class="case-label">Ausgangslage</div>
+          <div class="case-text">Ein SHK-Betrieb suchte neun Monate lang erfolglos einen Anlagenmechaniker. Trotz mehrerer Anzeigen gingen kaum qualifizierte Bewerbungen ein.</div>
+        </div>
+        <div class="case-row">
+          <div class="case-label">Ansatz</div>
+          <div class="case-text">Arbeitgeberpositionierung entwickelt, gezielte Fachkräfteansprache umgesetzt. Innerhalb von acht Wochen mehrere passende Bewerbungen generiert.</div>
+        </div>
+        <ul class="case-results">
+          <li>Klare Arbeitgebermarke entwickelt</li>
+          <li>40+ qualifizierte Bewerbungen</li>
+          <li>Schlüsselposition in acht Wochen besetzt</li>
+        </ul>
+      </article>
+      <article class="case-card">
+        <div class="case-row">
+          <div class="case-label">Ausgangslage</div>
+          <div class="case-text">Elektrobetrieb mit 22 Mitarbeitern wollte wachsen, konnte aber keine zusätzlichen Aufträge annehmen. Das Team arbeitete dauerhaft am Limit.</div>
+        </div>
+        <div class="case-row">
+          <div class="case-label">Ansatz</div>
+          <div class="case-text">Positionierung überarbeitet, passive Fachkräfte gezielt angesprochen. Innerhalb weniger Wochen mehrere qualifizierte Bewerbungen.</div>
+        </div>
+        <ul class="case-results">
+          <li>35+ qualifizierte Bewerbungen</li>
+          <li>Zwei Fachkräfte in zehn Wochen eingestellt</li>
+          <li>Auftragsannahme wieder planbar</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- BEISPIEL-SITUATIONEN (anonymisiert, rechtssicher) -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Stimmen aus der Praxis</div>
+      <h2 class="section-title">Typische Rückmeldungen, <span class="accent">die wir hören.</span></h2>
+      <p class="section-lead">Aus Gesprächen mit Geschäftsführern, die ihre Mitarbeitergewinnung strukturiert angehen. Anonymisiert, weil viele Inhaber ihre Recruiting-Strategie nicht öffentlich teilen wollen.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <article class="testimonial">
+        <div class="testimonial-mark" aria-hidden="true">"</div>
+        <p class="testimonial-quote">Nach 14 Jahren Zeitungsanzeigen und gefühlten 100 Online-Jobbörsen zum ersten Mal das Gefühl: Das funktioniert wirklich. Drei passende Bewerbungen in der ersten Woche.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-meta">Geschäftsführer</div>
+          <div class="testimonial-context">SHK-Betrieb, 18 Mitarbeiter, Niedersachsen</div>
+        </div>
+      </article>
+
+      <article class="testimonial">
+        <div class="testimonial-mark" aria-hidden="true">"</div>
+        <p class="testimonial-quote">Transparenz statt Versprechen. Wir sehen wöchentlich, was passiert und wie die Pipeline aussieht. Das ist der entscheidende Unterschied zu den Agenturen, mit denen wir vorher zusammengearbeitet haben.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-meta">Inhaber</div>
+          <div class="testimonial-context">Elektrobetrieb, 22 Mitarbeiter, Nordrhein-Westfalen</div>
+        </div>
+      </article>
+
+      <article class="testimonial">
+        <div class="testimonial-mark" aria-hidden="true">"</div>
+        <p class="testimonial-quote">Ich dachte, Social Recruiting ist was für junge Startups. Falsch gedacht. Die Bewerber, die über diesen Kanal kommen, sind zwischen 28 und 45 — genau unsere Zielgruppe.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-meta">Geschäftsführerin</div>
+          <div class="testimonial-context">SHK-Betrieb, 9 Mitarbeiter, Bayern</div>
+        </div>
+      </article>
+
+      <article class="testimonial">
+        <div class="testimonial-mark" aria-hidden="true">"</div>
+        <p class="testimonial-quote">Der Drehtag im Betrieb war entspannt und professionell. Die Bewerber kamen innerhalb von zwei Wochen — und vor allem passten sie fachlich und menschlich zu uns. Das war mit klassischen Anzeigen nie der Fall.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-meta">Inhaber</div>
+          <div class="testimonial-context">Elektrotechnik, 14 Mitarbeiter, Nordrhein-Westfalen</div>
+        </div>
+      </article>
+
+      <article class="testimonial">
+        <div class="testimonial-mark" aria-hidden="true">"</div>
+        <p class="testimonial-quote">Endlich jemand, der das Handwerk versteht. Die Ansprache trifft den Nerv unserer Leute — weil sie wie Menschen klingt und nicht wie eine Stellenanzeige. Zwei Meister innerhalb von zehn Wochen.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-meta">Geschäftsführer</div>
+          <div class="testimonial-context">SHK-Betrieb, 26 Mitarbeiter, Nordrhein-Westfalen</div>
+        </div>
+      </article>
+
+      <article class="testimonial">
+        <div class="testimonial-mark" aria-hidden="true">"</div>
+        <p class="testimonial-quote">Klarer Plan, klare Kommunikation, klare Ergebnisse. Keine Ausreden, kein Gerede. Ich bekomme vorqualifizierte Gespräche auf den Tisch — und muss mich selbst um nichts kümmern.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-meta">Inhaber</div>
+          <div class="testimonial-context">Haustechnik, 11 Mitarbeiter, Niedersachsen</div>
+        </div>
+      </article>
+    </div>
+
+    <div class="testimonials-note">
+      Alle Aussagen stammen aus Feedback-Gesprächen mit Partnerbetrieben. Auf Wunsch vieler Inhaber anonymisiert — konkrete Referenzen auf Anfrage im persönlichen Gespräch.
+    </div>
+  </div>
+</section>
+
+<!-- PROZESS -->
+<section class="section-alt" id="prozess">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">So startet die Zusammenarbeit</div>
+      <h2 class="section-title">Von der Analyse zur <span class="accent">planbaren Einstellung.</span></h2>
+    </div>
+    <div class="process-list">
+      <div class="process-row">
+        <div class="process-num-wrap">
+          <div class="section-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          </div>
+          <div class="process-num">01</div>
+        </div>
+        <div class="process-title">Analyse Ihrer Ausgangssituation</div>
+        <div class="process-desc">Wir analysieren Ihre aktuelle Personalsituation, offene Positionen und Wachstumsziele. Dabei prüfen wir, welche Engpässe bestehen und wie sich diese strategisch lösen lassen.</div>
+      </div>
+      <div class="process-row">
+        <div class="process-num-wrap">
+          <div class="section-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          </div>
+          <div class="process-num">02</div>
+        </div>
+        <div class="process-title">Arbeitgeberpositionierung und Strategie</div>
+        <div class="process-desc">Gemeinsam entwickeln wir eine klare Arbeitgeberpositionierung, die Ihre Stärken sichtbar macht. Darauf basiert die Recruiting-Strategie – abgestimmt auf Ihre Betriebsgröße und Zielgruppe.</div>
+      </div>
+      <div class="process-row">
+        <div class="process-num-wrap">
+          <div class="section-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+          <div class="process-num">03</div>
+        </div>
+        <div class="process-title">Umsetzung und Bewerbungsprozess</div>
+        <div class="process-desc">Wir setzen Kampagnen um, sprechen passende Fachkräfte an und implementieren einen professionellen Bewerbungsprozess. So entstehen qualifizierte Bewerbungen – planbar.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNTERSCHIED -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Was uns unterscheidet</div>
+      <h2 class="section-title">Warum unser Ansatz <span class="accent">anders wirkt.</span></h2>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-card">
+        <h3>Wir denken in Strukturen, nicht in Anzeigen</h3>
+        <p>Andere Agenturen schalten Anzeigen und hoffen auf Bewerbungen. Wir analysieren zuerst Ihre Positionierung. Denn ohne klare Differenzierung bleiben selbst gut bezahlte Stellen austauschbar.</p>
+      </div>
+      <div class="diff-card">
+        <h3>Wir verstehen Handwerksbetriebe</h3>
+        <p>SHK-Betriebe und Elektriker funktionieren anders als Konzernstrukturen. Baustelle, Kundendienst und Werkstatt bestimmen den Alltag – genau darauf sind unsere Strategien zugeschnitten.</p>
+      </div>
+      <div class="diff-card">
+        <h3>Wir bauen ein System, keine Kampagne</h3>
+        <p>Viele Agenturen liefern Bewerbungen. Wir etablieren einen Prozess aus Arbeitgebermarke, gezielter Ansprache und professioneller Auswahl – als Wettbewerbsvorteil, nicht als Einmaleffekt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Im direkten Vergleich</div>
+      <h2 class="section-title">Das Dreiwerk vs. <span class="accent">klassisches Recruiting.</span></h2>
+      <p class="section-lead">Warum Stellenportale, Headhunter und Generalisten bei SHK und Elektro selten funktionieren.</p>
+    </div>
+
+    <div class="compare">
+      <div class="compare-head">
+        <div>Disziplin</div>
+        <div class="us">
+          <span class="logo-mark" style="transform:scale(.8)"><span></span><span></span><span></span></span>
+          Das Dreiwerk
+        </div>
+        <div class="them">Agenturen & Jobportale</div>
+      </div>
+      <div class="compare-row">
+        <div class="label">Zielgruppen-Fokus</div>
+        <div class="us-cell">
+          <span class="compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Aktive <em>und</em> passive Fachkräfte
+        </div>
+        <div class="them-cell">
+          <span class="compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>
+          Nur aktiv Suchende
+        </div>
+      </div>
+      <div class="compare-row">
+        <div class="label">Branchenwissen</div>
+        <div class="us-cell">
+          <span class="compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Spezialisiert auf SHK &amp; Elektro
+        </div>
+        <div class="them-cell">
+          <span class="compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>
+          Branchenfremd, generisch
+        </div>
+      </div>
+      <div class="compare-row">
+        <div class="label">Vorqualifizierung</div>
+        <div class="us-cell">
+          <span class="compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Telefonische Vorauswahl durch uns
+        </div>
+        <div class="them-cell">
+          <span class="compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>
+          Sie bekommen den ganzen Stapel
+        </div>
+      </div>
+      <div class="compare-row">
+        <div class="label">Zeitaufwand für Sie</div>
+        <div class="us-cell">
+          <span class="compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Ca. 30 Min. pro Woche
+        </div>
+        <div class="them-cell">
+          <span class="compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>
+          Mehrere Stunden wöchentlich
+        </div>
+      </div>
+      <div class="compare-row">
+        <div class="label">Transparenz</div>
+        <div class="us-cell">
+          <span class="compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Wöchentliches Reporting
+        </div>
+        <div class="them-cell">
+          <span class="compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>
+          Black Box bis zur Rechnung
+        </div>
+      </div>
+      <div class="compare-row">
+        <div class="label">Nach der Einstellung</div>
+        <div class="us-cell">
+          <span class="compare-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Laufende Pipeline für Wachstum
+        </div>
+        <div class="them-cell">
+          <span class="compare-no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>
+          Sie starten wieder bei Null
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Das Experten-Team</div>
+      <h2 class="section-title">Vier Köpfe. <span class="accent">Ein Ziel.</span></h2>
+      <p class="section-lead">Hinter Das Dreiwerk steht ein interdisziplinäres Team aus Strategen, Recruiting-Spezialisten und Marketing-Experten. Seit 2021 auf Augenhöhe.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">HB</div>
+        <h3>Hans Braun</h3>
+        <div class="role">Strategische Leitung</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">DK</div>
+        <h3>Daniel Krämer</h3>
+        <div class="role">Positionierung & Kampagnen</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">SN</div>
+        <h3>Sophie Neumann</h3>
+        <div class="role">Recruiting-Prozess</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">LH</div>
+        <h3>Lena Hartmann</h3>
+        <div class="role">Performance & Daten</div>
+      </div>
+    </div>
+    <div class="standort-card">
+      <div>
+        <div class="standort-label">Unser Standort</div>
+        <div class="standort-title">Hannover — Kirchhorster Straße 31</div>
+        <div class="standort-text">Auf rund 300 m² in 30659 Hannover. Von hier aus begleiten wir Handwerksbetriebe im gesamten DACH-Raum – digital und persönlich.</div>
+      </div>
+      <a href="#kontakt" class="btn btn-primary">
+        Team kennenlernen
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- POTENZIAL-CHECK -->
+<section>
+  <div class="container">
+    <div class="potential">
+      <div style="position:relative;z-index:1">
+        <div class="potential-label">Kostenfreie Analyse</div>
+        <h3>Der Potenzial-Check für Ihren Betrieb.</h3>
+        <p>In 30 Minuten erfahren Sie, ob Ihr Betrieb das Potenzial hat, mit unserem 3-Schritte-System planbar Fachkräfte zu gewinnen – und welche Ergebnisse realistisch sind.</p>
+        <a href="#kontakt" class="btn btn-white">
+          Jetzt Potenzial prüfen
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <ul class="potential-list">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+          Regionale Marktanalyse: Wie viele Fachkräfte in 50 km Umkreis erreichbar sind.
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+          Arbeitgebermarken-Check: Wie attraktiv Ihr Betrieb nach außen wirkt.
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+          Konkrete Prognose: Wie schnell welche Stelle realistisch besetzbar ist.
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+          ROI-Kalkulation: Was eine Zusammenarbeit konkret bringt.
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+          Ehrliche Einschätzung: Ob wir die richtigen Partner für Sie sind.
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-alt" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Häufige Fragen</div>
+      <h2 class="section-title">Unsere Antworten auf <span class="accent">Ihre Fragen.</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">
+          Für wen ist die Dienstleistung geeignet?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Unsere Dienstleistung richtet sich an SHK-Betriebe und Elektriker, die offene Positionen strukturiert und planbar besetzen möchten. Besonders geeignet sind Betriebe mit 5 bis 50 Mitarbeitenden, die wachsen wollen, jedoch durch fehlende Fachkräfte ausgebremst werden.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Haben Sie Erfahrung in meiner Branche?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Ja. Wir haben uns bewusst auf Handwerksbetriebe spezialisiert und kennen die Dynamik zwischen Baustelle, Kundendienst und Büro. Unsere Strategien sind exakt auf diese Branche abgestimmt – von der Sprache in den Kampagnen bis zur Auswahl der passenden Kandidaten.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Funktioniert das auch auf dem Land?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Gerade dort funktioniert es besonders gut. Während auf Jobportalen alle Betriebe gleich aussehen, sind Sie auf Instagram oder Facebook mit gezielter Reichweite oft die einzige sichtbare Stimme im 40-km-Radius. Regionales Targeting erlaubt uns, Kampagnen bis auf die Postleitzahl genau auszusteuern.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Wie viel Zeit muss ich selbst investieren?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Ungefähr 30 Minuten pro Woche. Einmalig kommen wir für einen halben Tag zu Ihnen in den Betrieb für das Content-Drehen. Danach läuft die gesamte Kampagnen-Arbeit und Vorqualifizierung bei uns – Sie führen nur noch die finalen Bewerbungsgespräche.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Warum sollte ich mich für Ihre Dienstleistung entscheiden?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Im Gegensatz zu klassischen Recruiting-Agenturen setzen wir nicht auf einzelne Stellenanzeigen, sondern auf ein strukturiertes System. Wir entwickeln eine klare Arbeitgeberpositionierung, sprechen gezielt passende Fachkräfte an und implementieren einen professionellen Bewerbungsprozess. Unser Ziel sind nicht möglichst viele Bewerbungen, sondern die richtigen Mitarbeitenden.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Wann kann ich mit dem ersten Ergebnis rechnen?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">In der Regel sehen unsere Kunden innerhalb der ersten zwei Wochen qualifizierte Bewerbungen. Die Besetzung einer Position liegt häufig im Zeitraum von 6 bis 10 Wochen. Unser Fokus liegt auf nachhaltiger Besetzung, nicht auf kurzfristigen Schnelllösungen.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Was kostet eine Zusammenarbeit?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Die Investition startet bei einem festen Monatsbeitrag, der sich bereits durch einen neuen Monteur mehrfach amortisiert. Im kostenfreien Erstgespräch zeigen wir Ihnen transparent, was eine offene Stelle Sie monatlich kostet – und rechnen gegen, was eine Zusammenarbeit in Ihrer Region realistisch bringt.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="kontakt">
+  <div class="container">
+    <div class="final-cta-notice">Wir begleiten nur eine begrenzte Anzahl Betriebe parallel.</div>
+    <h2>Vereinbaren Sie Ihr kostenloses Erstgespräch.</h2>
+    <p>30 Minuten. Unverbindlich. Sie erhalten eine ehrliche Einschätzung, ob unser 3-Schritte-System zu Ihrem Betrieb passt.</p>
+    <a href="#" class="btn btn-primary">
+      Jetzt Erstgespräch vereinbaren
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <div class="final-cta-small">Unverbindlich · Keine Vertragsbindung · Kostenfrei</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">
+        <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        Das Dreiwerk
+      </div>
+      <p class="footer-tagline">Seit 2021 unterstützen wir Handwerksbetriebe dabei, qualifizierte Fachkräfte planbar zu gewinnen.</p>
+      <p class="footer-address">Kirchhorster Straße 31<br>30659 Hannover</p>
+    </div>
+    <div class="footer-col">
+      <h5>Unternehmen</h5>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#methode">Methode</a></li>
+        <li><a href="#prozess">Prozess</a></li>
+        <li><a href="#cases">Kundenerfahrungen</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Rechtliches</h5>
+      <ul>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+        <li><a href="agb.html">AGB</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Kontakt</h5>
+      <ul>
+        <li><a href="#kontakt">Erstgespräch</a></li>
+        <li><a href="mailto:kontakt@dasdreiwerk.de">E-Mail schreiben</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Das Dreiwerk · Hannover</div>
+    <div>Diese Website ist nicht Teil der Facebook-Website oder von Meta Platforms Inc.</div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    if (window.scrollY > 20) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const wasActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      if (!wasActive) item.classList.add('active');
+    });
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id.length > 1) {
+        const el = document.querySelector(id);
+        if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+      }
+    });
+  });
+
+  // Interaktiver Kosten-Rechner
+  (function(){
+    const ordersInput = document.getElementById('calcOrders');
+    const volumeInput = document.getElementById('calcVolume');
+    const ordersValue = document.getElementById('calcOrdersValue');
+    const volumeValue = document.getElementById('calcVolumeValue');
+    const monthOut = document.getElementById('calcMonth');
+    const yearOut = document.getElementById('calcYear');
+
+    if(!ordersInput) return;
+
+    const fmt = n => n.toLocaleString('de-DE');
+
+    function updateSliderTrack(input){
+      const min = +input.min, max = +input.max, val = +input.value;
+      const pct = ((val - min) / (max - min)) * 100;
+      input.style.background = `linear-gradient(to right, rgba(255,255,255,.55) 0%, rgba(255,255,255,.55) ${pct}%, rgba(255,255,255,.1) ${pct}%, rgba(255,255,255,.1) 100%)`;
+    }
+
+    function calculate(animate){
+      const orders = +ordersInput.value;
+      const volume = +volumeInput.value;
+      const month = orders * volume;
+      const year = month * 12;
+
+      ordersValue.textContent = orders >= 20 ? '20+' : orders;
+      volumeValue.textContent = fmt(volume);
+      monthOut.textContent = fmt(month) + ' €';
+      yearOut.textContent = fmt(year) + ' €';
+
+      if(animate){
+        monthOut.classList.remove('pulse');
+        yearOut.classList.remove('pulse');
+        void monthOut.offsetWidth;
+        monthOut.classList.add('pulse');
+        yearOut.classList.add('pulse');
+      }
+
+      updateSliderTrack(ordersInput);
+      updateSliderTrack(volumeInput);
+    }
+
+    ordersInput.addEventListener('input', () => calculate(true));
+    volumeInput.addEventListener('input', () => calculate(true));
+    calculate(false);
+  })();
+
+  const reveal = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        reveal.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.problem-item, .method-row, .process-row, .expect-row, .diff-card, .team-card, .case-card, .testimonial, .compare-row').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(12px)';
+    el.style.transition = `opacity .5s cubic-bezier(.2,.8,.2,1) ${(i % 6) * 0.04}s, transform .5s cubic-bezier(.2,.8,.2,1) ${(i % 6) * 0.04}s`;
+    reveal.observe(el);
+  });
+</script>
+
+</body>
+</html>

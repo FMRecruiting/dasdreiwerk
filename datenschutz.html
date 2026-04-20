@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Datenschutz – Das Dreiwerk</title>
+<meta name="description" content="Datenschutzerklärung der 4 Digital GmbH (Das Dreiwerk)." />
+<meta name="robots" content="noindex,follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===========================================================
+   Das Dreiwerk — Base-Styles für Rechtsseiten
+   (Impressum, Datenschutz, AGB)
+   =========================================================== */
+:root{
+  --ink: #001180;
+  --ink-hover: #000a52;
+  --bg: #ffffff;
+  --bg-soft: #fafafa;
+  --bg-alt: #f4f4f6;
+  --char: #0a0a0f;
+  --muted: #666670;
+  --muted-soft: #8a8a95;
+  --line: rgba(10, 10, 15, 0.08);
+  --line-strong: rgba(10, 10, 15, 0.14);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--char);background:var(--bg);
+  font-weight:400;line-height:1.6;letter-spacing:-0.008em;
+}
+a{color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px;transition:color .2s}
+a:hover{color:var(--ink-hover)}
+::selection{background:var(--ink);color:#fff}
+
+/* NAV */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 32px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(20px) saturate(1.8);
+  -webkit-backdrop-filter:blur(20px) saturate(1.8);
+  border-bottom:1px solid var(--line);
+}
+.logo{
+  display:flex;align-items:center;gap:10px;
+  font-weight:600;font-size:17px;color:var(--char);letter-spacing:-.02em;
+  text-decoration:none;
+}
+.logo-mark{display:inline-flex;align-items:center;gap:2.5px}
+.logo-mark span{display:block;width:2.5px;border-radius:1px;background:var(--ink)}
+.logo-mark span:nth-child(1){height:11px}
+.logo-mark span:nth-child(2){height:16px}
+.logo-mark span:nth-child(3){height:11px}
+.nav-back{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:14px;font-weight:500;color:var(--char);
+  padding:8px 14px;border-radius:6px;transition:background .2s;
+  text-decoration:none;
+}
+.nav-back:hover{background:var(--bg-alt);color:var(--char)}
+.nav-back svg{width:14px;height:14px}
+
+/* HEADER */
+.legal-header{
+  padding:140px 32px 64px;
+  border-bottom:1px solid var(--line);
+  background:var(--bg);
+}
+.legal-header-inner{max-width:760px;margin:0 auto}
+.legal-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:500;color:var(--ink);margin-bottom:20px;
+}
+.legal-eyebrow::before{content:"";width:16px;height:1px;background:var(--ink)}
+.legal-title{
+  font-weight:600;font-size:clamp(36px,5vw,56px);
+  line-height:1.05;letter-spacing:-.03em;color:var(--char);margin-bottom:16px;
+}
+.legal-sub{
+  font-size:16px;line-height:1.55;color:var(--muted);max-width:560px;
+}
+.legal-updated{
+  margin-top:24px;display:inline-flex;align-items:center;gap:10px;
+  padding:6px 12px;border-radius:999px;background:var(--bg-alt);
+  font-size:12px;color:var(--muted);font-weight:500;
+}
+.legal-updated-dot{width:6px;height:6px;border-radius:50%;background:var(--ink)}
+
+/* CONTENT */
+main{padding:64px 32px 120px}
+.legal-content{
+  max-width:760px;margin:0 auto;
+  font-size:15.5px;line-height:1.7;color:var(--char);
+}
+.legal-content p{margin-bottom:18px;color:var(--char)}
+.legal-content h2{
+  font-size:clamp(22px,2.4vw,28px);font-weight:600;
+  letter-spacing:-.02em;line-height:1.25;color:var(--char);
+  margin-top:56px;margin-bottom:20px;
+  padding-top:28px;border-top:1px solid var(--line);
+}
+.legal-content h2:first-child{margin-top:0;padding-top:0;border-top:none}
+.legal-content h3{
+  font-size:17px;font-weight:600;letter-spacing:-.01em;
+  color:var(--char);margin-top:32px;margin-bottom:12px;
+}
+.legal-content ul, .legal-content ol{
+  margin:16px 0 24px 24px;padding-left:0;
+}
+.legal-content ul li, .legal-content ol li{
+  margin-bottom:8px;padding-left:8px;line-height:1.65;
+}
+.legal-content ol{counter-reset:item;list-style:none;margin-left:0}
+.legal-content ol > li{
+  counter-increment:item;position:relative;padding-left:36px;margin-bottom:14px;
+}
+.legal-content ol > li::before{
+  content:counter(item) ".";position:absolute;left:0;top:0;
+  font-weight:600;color:var(--ink);
+  font-variant-numeric:tabular-nums;min-width:28px;
+}
+.legal-content strong{font-weight:600;color:var(--char)}
+.legal-content hr{
+  margin:40px 0;border:none;height:1px;background:var(--line);
+}
+.legal-content a{word-break:break-word}
+
+/* Contact Card */
+.contact-card{
+  padding:24px 28px;border:1px solid var(--line);border-radius:12px;
+  background:var(--bg-soft);margin:24px 0 32px;
+}
+.contact-card strong{display:block;margin-bottom:10px;font-size:16px}
+.contact-card p{margin-bottom:4px;color:var(--char)}
+.contact-card a{color:var(--ink)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:40px 32px 32px;background:var(--bg)}
+.footer-inner{
+  max-width:760px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:24px;flex-wrap:wrap;
+}
+.footer-links{
+  display:flex;gap:24px;font-size:13px;
+}
+.footer-links a{color:var(--muted);text-decoration:none;font-weight:500;transition:color .2s}
+.footer-links a:hover{color:var(--char)}
+.footer-copy{font-size:12px;color:var(--muted-soft)}
+
+@media (max-width: 640px){
+  .nav{padding:12px 20px}
+  .legal-header{padding:110px 20px 44px}
+  main{padding:44px 20px 80px}
+  .legal-content h2{margin-top:40px;padding-top:20px}
+  .footer-inner{flex-direction:column;align-items:flex-start;gap:12px}
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="das-dreiwerk-shk-elektro.html" class="logo" aria-label="Zurück zur Startseite">
+    <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+    Das Dreiwerk
+  </a>
+  <a href="das-dreiwerk-shk-elektro.html" class="nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Zurück zur Startseite
+  </a>
+</nav>
+
+<!-- HEADER -->
+<section class="legal-header">
+  <div class="legal-header-inner">
+    <div class="legal-eyebrow">Rechtliches</div>
+    <h1 class="legal-title">Datenschutz­erklärung</h1>
+    <p class="legal-sub">Der Schutz Ihrer personenbezogenen Daten bei der Erhebung, Verarbeitung und Nutzung anlässlich Ihres Besuchs auf unserer Website ist uns ein wichtiges Anliegen. Ihre Daten werden im Rahmen der gesetzlichen Vorschriften geschützt.</p>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<main>
+  <div class="legal-content">
+
+    <p>Wir freuen uns über Ihr Interesse an unserer Website.</p>
+    <p>Bitte nehmen Sie sich einen Augenblick Zeit und lesen Sie die nachstehenden Informationen. Diese geben Ihnen darüber Auskunft, wie wir mit Ihren persönlichen Daten umgehen, wie und zu welchem Zweck diese Daten verwendet werden, an wen wir diese Daten weitergeben und wie wir Ihre persönlichen Daten schützen.</p>
+    <p>Ihre Persönlichkeitsrechte haben bei uns höchste Priorität und wir bemühen uns nach besten Kräften, diese Rechte zu schützen und zu gewährleisten.</p>
+
+    <h2>Verantwortlicher</h2>
+    <p>Verantwortlicher für die Verarbeitung Ihrer personenbezogenen Daten im Sinne der Europäischen Datenschutz-Grundverordnung ist:</p>
+    <div class="contact-card">
+      <strong>4 Digital GmbH</strong>
+      <p>Kirchhorster Straße 31</p>
+      <p>30659 Hannover</p>
+      <p>Telefon: <a href="tel:+495115154138​0">0511 – 515 413 80</a></p>
+      <p>E-Mail: <a href="mailto:info@dasdreiwerk.de">info@dasdreiwerk.de</a></p>
+    </div>
+
+    <h2>Datenschutzbeauftragter</h2>
+    <p>Bei Fragen zum Datenschutz steht Ihnen unser Datenschutzbeauftragter Dr. Bittner Group, Podbielskistraße 386, 30659 Hannover gerne zur Verfügung (<a href="mailto:datenschutzteam381@drbg.de">datenschutzteam381@drbg.de</a>).</p>
+
+    <h2>Erhebung und Verarbeitung von Daten</h2>
+    <p>Jeder Zugriff auf unsere Website und jeder Abruf einer auf der Website hinterlegten Datei wird protokolliert. Die Speicherung dient internen systembezogenen und statistischen Zwecken.</p>
+    <p>Protokolliert werden:</p>
+    <ul>
+      <li>Name der abgerufenen Datei,</li>
+      <li>Datum und Uhrzeit des Abrufs,</li>
+      <li>übertragene Datenmenge,</li>
+      <li>Meldung über erfolgreichen Abruf,</li>
+      <li>verwendetes Betriebssystem,</li>
+      <li>Browser und Browsertyp,</li>
+      <li>die Internetseite, von der weitergeleitet wurde,</li>
+      <li>der Internet-Service-Provider,</li>
+      <li>besuchte Seiten und</li>
+      <li>anfragende Domain.</li>
+    </ul>
+    <p>Zusätzlich werden die IP-Adressen der anfragenden Rechner protokolliert. Der Verantwortliche zieht allerdings keine Rückschlüsse auf eine Person.</p>
+    <p>Diese Daten werden lediglich dafür benötigt, um die Inhalte unserer Website richtig anzeigen zu können, um die Inhalte dauerhaft für Sie zu optimieren sowie zur Unterstützung von strafrechtlichen Verfolgungen im Falle von Hackerangriffen. Die Daten werden auf Grundlage unseres berechtigten Interesses gemäß Art. 6 Abs. 1 UAbs. 1 lit. f) DSGVO verarbeitet. Die Verarbeitung der Daten ist für den Betrieb der Webseite erforderlich.</p>
+    <p>Die Daten werden gespeichert, solange sie zur Zweckerfüllung benötigt werden und anschließend automatisch gelöscht.</p>
+
+    <h2>Betroffenenrechte</h2>
+    <p>Gemäß Art. 15 DSGVO steht Ihnen ein Recht auf Auskunft über die Verarbeitung Ihrer personenbezogenen Daten zu.</p>
+    <p>Darüber hinaus steht es Ihnen frei, Ihre Rechte auf Berichtigung, Löschung oder, sofern das Löschen nicht möglich ist, auf Einschränkung der Verarbeitung und auf Datenübertragbarkeit gemäß der Artikel 16–18, 20 DSGVO geltend zu machen. Sollten Sie dieses Recht in Anspruch nehmen wollen, so wenden Sie sich bitte an unseren Datenschutzbeauftragten.</p>
+    <p>Weiterhin steht Ihnen das Recht zu, sich jederzeit bei der zuständigen Aufsichtsbehörde zu beschweren. Sollten Sie der Meinung sein, dass die Verarbeitung Ihrer personenbezogenen Daten nicht unter Einhaltung der Datenschutzgesetze erfolgt, würden wir Sie höflich darum bitten, sich mit unserem Datenschutzbeauftragten in Kontakt zu setzen.</p>
+    <p>Des Weiteren haben Sie das Recht, jederzeit der Verarbeitung Ihrer personenbezogenen Daten zu widersprechen.</p>
+
+    <h2>Schutz der gespeicherten Daten</h2>
+    <p>Wir setzen technische und organisatorische Sicherheitsmaßnahmen ein, um Ihre uns zur Verfügung gestellten personenbezogenen Daten vor Manipulation, Verlust, Zerstörung oder dem Zugriff unberechtigter Personen zu schützen. Unsere Sicherheitsmaßnahmen werden entsprechend dem Stand der Technik fortlaufend verbessert und angepasst. Es ist nicht auszuschließen, dass von Ihnen unverschlüsselt übermittelte Daten von Dritten währen der Übermittlung eingesehen werden können. Es wird darauf hingewiesen, dass hinsichtlich der Datenübertragung über das Internet (z. B. bei der Kommunikation per E-Mail) keine abschließend sichere Übertragung garantiert werden kann. Empfindliche Daten sollten daher entweder gar nicht oder nur über eine sichere Verbindung (SSL) über das Internet übertragen werden.</p>
+
+    <h2>Minderjährigenschutz</h2>
+    <p>Die Einwilligung zur Verarbeitung personenbezogener Daten kann nur durch eine volljährige Person erteilt werden. Für Dienste der Informationsgesellschaft ist die Einwilligung eines Kindes ab dem Erreichen des sechzehnten Lebensjahres gemäß Art. 8 DSGVO zulässig.</p>
+
+    <h2>Hosting</h2>
+    <p>Die Inhalte dieser Website werden bei folgendem Anbieter gehostet:</p>
+    <h3>Webflow</h3>
+    <p>Anbieter ist die Webflow, Inc.: Dienstanbieter: 398 11th Street, 2nd Floor San Francisco, CA 94103, USA (nachfolgend Webflow).</p>
+    <p>Weitere Details können Sie der Datenschutzerklärung von Webflow entnehmen: <a href="https://webflow.com/legal/eu-privacy-policy" target="_blank" rel="noopener">https://webflow.com/legal/eu-privacy-policy</a></p>
+    <p>Die Verwendung von Webflow erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG, soweit die Einwilligung die Speicherung von Cookies oder den Zugriff auf Informationen im Endgerät des Nutzers (z. B. Device-Fingerprinting) im Sinne des TDDDG umfasst. Die Einwilligung ist jederzeit widerrufbar. Weiterhin haben wir einen Vertrag zur Auftragsverarbeitung mit dem Anbieter abgeschlossen.</p>
+
+    <h2>Kontaktformular</h2>
+    <p>All Ihre personenbezogenen Daten und weiteren Informationen, die Sie uns über das auf unserer Website eingerichtete Kontaktformular mitteilen, werden nur zum Zwecke der Bearbeitung und Beantwortung Ihrer Anfragen erhoben und verarbeitet.</p>
+    <p>Soweit Sie mit uns Kontakt aufnehmen, erteilen Sie Ihre Einwilligung für die Datenverarbeitung gemäß Art. 6 Abs. 1 UAbs. 1 lit. a) DSGVO.</p>
+    <p>Sollten Sie an einem Angebot interessiert sein, werden Ihre personenbezogenen Daten zum Zweck der Vertragsanbahnung gemäß Art. 6 Abs. 1 UAbs. 1 lit. b) DSGVO verarbeitet.</p>
+    <p>Ihre Daten werden über unseren Provider per E-Mail an uns weitergeleitet. Bei Nichtbereitstellung ist es uns leider nicht möglich, Kontakt mit Ihnen aufzunehmen und Ihr Anliegen zu bearbeiten.</p>
+    <p>Eine automatisierte Entscheidungsfindung wird nicht vorgenommen.</p>
+    <p>Eine Weitergabe Ihrer personenbezogenen Daten an externe Dritte erfolgt an Wufoo.</p>
+    <p>Betreibergesellschaft ist die Momentive Europe UC, 2 Shelbourne Buildings, Second Floor, Shelbourne Rd Ballsbridge, Dublin 4, Ireland.</p>
+    <p>Die geltenden Datenschutzbestimmungen können hier abgerufen werden: <a href="https://www.wufoo.com/privacy/" target="_blank" rel="noopener">https://www.wufoo.com/privacy/</a></p>
+    <p>Eine Übermittlung der von Ihnen bereitgestellten personenbezogenen Daten an ein Drittland oder eine internationale Organisation findet nicht statt und ist auch nicht in Planung.</p>
+    <p>Sie haben das Recht, Ihre Einwilligung jederzeit mit Wirkung für die Zukunft zu widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt unberührt.</p>
+    <p>Ihre personenbezogenen Daten, welche Sie uns über das Kontaktformular mitteilen, werden bei uns für die Dauer der Bearbeitung Ihres Anliegens gespeichert und bis zum Ablauf der entsprechenden gesetzlichen Fristen aufbewahrt.</p>
+
+    <h2>E-Mail-Kontakt, Telefon und Telefax</h2>
+    <p>Auf unserer Website ist eine Kontaktaufnahme über die angegebene E-Mail-Adresse möglich. Außerdem können Sie uns über die auf der Website angegebene Telefon- oder Telefaxnummer kontaktieren. Nehmen Sie diese Möglichkeiten wahr, so werden die dabei übermittelten personenbezogenen Daten gespeichert und nur zum Zwecke der Bearbeitung und Beantwortung Ihrer Anfrage erhoben und verarbeitet.</p>
+    <p>Soweit Sie mit uns Kontakt aufnehmen, erteilen Sie Ihre Einwilligung für die Datenverarbeitung gemäß Art. 6 Abs. 1 UAbs. 1 lit. a) DSGVO.</p>
+    <p>Sollten Sie an einem Angebot interessiert sein, werden Ihre personenbezogenen Daten zum Zweck der Vertragsanbahnung gemäß Art. 6 Abs. 1 UAbs. 1 lit. b) DSGVO verarbeitet.</p>
+    <p>Bei Nichtbereitstellung ist es uns leider nicht möglich, Ihr Anliegen zu bearbeiten. Eine automatisierte Entscheidungsfindung wird nicht vorgenommen.</p>
+    <p>Eine Weitergabe Ihrer personenbezogenen Daten an externe Dritte erfolgt nicht.</p>
+    <p>Eine Übermittlung der von Ihnen bereitgestellten personenbezogenen Daten an ein Drittland oder eine internationale Organisation findet nicht statt und ist auch nicht in Planung.</p>
+    <p>Sie haben das Recht, Ihre Einwilligung jederzeit mit Wirkung für die Zukunft zu widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt unberührt.</p>
+    <p>Ihre personenbezogenen Daten, welche Sie uns mitteilen, werden bei uns für die Dauer der Bearbeitung Ihres Anliegens gespeichert bis zum Ablauf der entsprechenden gesetzlichen Fristen aufbewahrt.</p>
+
+    <h2>Online-Bewerbung</h2>
+    <p>Die von Ihnen übermittelten personenbezogenen Daten werden zum Zweck der Entscheidung über die Begründung eines Beschäftigungsverhältnisses gemäß Art. 6 Abs. 1 UAbs. 1 lit. b) DSGVO erhoben, verarbeitet und genutzt. Die Bereitstellung Ihrer personenbezogenen Daten ist für die Abwicklung des Bewerbungsprozesses und zur Entscheidung über eine Begründung eines Beschäftigungsverhältnisses notwendig. Bei Nichtbereitstellung ist es uns leider nicht möglich, Sie bei der Auswahl zur Besetzung der ausgeschriebenen Stelle zu berücksichtigen.</p>
+    <p>Eine automatisierte Entscheidungsfindung wird nicht vorgenommen.</p>
+    <p>Die von Ihnen übermittelten personenbezogenen Daten verarbeiten wir ausschließlich im Bewerbungsverfahren. Ihre Daten werden durch die sog. Transport Layer Security (TLS) an uns verschlüsselt übermittelt.</p>
+    <p>Die erforderlichen Informationen nach Art. 13 DSGVO stellen wir Ihnen bei Eingang Ihrer Bewerbung mittels Antwort-E-Mail zur Verfügung.</p>
+    <p>Eine Weitergabe Ihrer personenbezogenen Daten an externe Dritte erfolgt nicht. Zur Beurteilung Ihrer Unterlagen werden diese an die zuständigen Mitarbeiter der Personalabteilung und an die zuständigen Ansprechpartner/Abteilungsleiter der jeweiligen Fachabteilung weitergeleitet, für welche die Bewerbung bestimmt ist.</p>
+    <p>Eine Übermittlung an ein Drittland oder eine internationale Organisation der von Ihnen bereitgestellten personenbezogenen Daten findet nicht statt und ist auch nicht in Planung.</p>
+    <p>Ihre Bewerbungsunterlagen werden bei uns für die Dauer des Bewerberverfahrens gespeichert und darüber hinaus für 3 Monate aufbewahrt, um eventuelle Fragen durch Sie beantworten zu können. Nach Ablauf dieser Zeit werden die Unterlagen gelöscht. Bei postalisch eingesandten Unterlagen werden diese nach Ablauf der 3 Monate zurückgesendet oder vernichtet. Insofern es zu einer Anstellung in unserem Hause kommt, werden Ihre Bewerbungsunterlagen in Ihre Personalakte überführt.</p>
+
+    <h2>Cookies</h2>
+    <h3>Technisch notwendige Cookies (Session Cookies)</h3>
+    <p>Auf unserer Webseite setzen wir technische Cookies ein, um die Website nutzerfreundlicher zu gestalten. Um den vollen Funktionsumfang unseres Internetauftritts zu nutzen, ist es daher aus technischen Gründen erforderlich, die Session Cookies zuzulassen.</p>
+    <p>Zweck der Verwendung solcher Cookies ist, Ihnen die Möglichkeit zu geben, die Website vereinfacht und benutzerfreundlicher nutzen zu können. Daher ist es erforderlich, dass der Browser Sie auch nach einem Seitenwechsel identifizieren kann.</p>
+    <p>Die Daten werden nicht benutzt, um ein Nutzerprofil von Ihnen zu erstellen. Rechtliche Grundlage für den Einsatz von technischen Cookies ist § 25 Abs. 2 TDDDG. Eine Nutzung der Website ohne Session Cookies ist nicht möglich.</p>
+
+    <h3>Cookies zur Auswertung (Tracking Cookies)</h3>
+    <p>Neben dem Einsatz von technischen Cookies werden auf dieser Website Tracking-Cookies eingesetzt. Cookies sind Textdateien, die auf Ihrem Computer gespeichert werden und die eine Analyse Ihrer Benutzung der Website ermöglichen. Diese sammeln und speichern allerdings die Daten ausschließlich in pseudonymer Form. Sie werden nicht dazu benutzt, Sie persönlich zu identifizieren und werden nicht mit Daten über den Träger des Pseudonyms zusammengeführt. Wir verwenden diese Informationen, um die Attraktivität unserer Website zu ermitteln und ihren Inhalt kontinuierlich zu verbessern.</p>
+    <p>Rechtliche Grundlage für den Einsatz von Tracking-Cookies ist die von Ihnen erteilte Einwilligung gemäß § 25 Abs. 1 TDDDG.</p>
+    <p>Sie haben das Recht, Ihre Einwilligung jederzeit mit Wirkung für die Zukunft zu widerrufen. Die Rechtmäßigkeit der Datenverarbeitung bis zum Widerruf bleibt unberührt.</p>
+    <p>Sie können die Cookies-Einstellungen jederzeit anpassen.</p>
+    <p>Einzelne Informationen über die eingesetzten Cookies und Analysedienste sowie den Zweck und die rechtliche Grundlage der Datenverarbeitung sind weiterhin in der Datenschutzerklärung ausführlich beschrieben.</p>
+
+    <h2>Google Analytics</h2>
+    <p>Diese Website nutzt Google Analytics, einen Webanalysedienst der Google Ireland Ltd. (Gordon House, Barrow Street, Dublin 4, Irland; im Folgenden „Google"), welcher Cookies verwendet. Cookies sind Textdateien, die auf Ihrem Computer gespeichert werden und eine Analyse Ihrer Nutzung der Website ermöglichen. Die durch Cookies erzeugten Informationen über Ihre Benutzung dieser Website werden in der Regel an einen Server von Google in der Europäischen Union (EU) oder im Europäischen Wirtschaftsraum (EWR) übertragen. Da diese Website jedoch eine IP-Anonymisierung vornimmt, wird Ihre IP-Adresse von Google zuvor innerhalb von Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum gekürzt.</p>
+    <p>In Ausnahmefällen wird die volle IP-Adresse an einen Server von Google in den USA übertragen und dort gekürzt. Im Auftrag des Betreibers dieser Website nutzt Google diese Informationen, um Ihre Nutzung der Website auszuwerten, um Reports über die Websiteaktivitäten zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen gegenüber dem Websitebetreiber zu erbringen. Eine Zusammenführung der im Rahmen von Google Analytics von Ihrem Browser übermittelten IP-Adresse mit anderen Daten von Google findet nicht statt.</p>
+    <p>Die Erhebung im Rahmen dieses Dienstes erfolgt nur nach Erteilung Ihrer ausdrücklichen Einwilligung. Rechtsgrundlage hierfür ist Art. 6 Abs. 1 UAbs. 1 lit. a) DSGVO in Verbindung mit § 25 Abs. 1 TDDDG. Sie haben das Recht, Ihre Einwilligung jederzeit mit Wirkung für die Zukunft zu widerrufen. Die Rechtmäßigkeit der Datenverarbeitung bis zum Widerruf bleibt unberührt.</p>
+    <p>Zweck der Erhebung ist die Auswertung der Nutzung unserer Website. Des Weiteren können wir durch den Einsatz von Google Analytics Reports über Websiteaktivitäten erstellen und somit unseren Internetauftritt verbessern. Neben uns ist Google als Empfänger der Daten zu nennen.</p>
+    <p>Die Daten werden gelöscht, sobald sie für unsere Aufzeichnungszwecke nicht mehr benötigt werden. Die Erfassung Ihrer Daten durch Google Analytics können Sie jederzeit auch nach Erteilung Ihrer Einwilligung unterbinden.</p>
+    <p>Die Datenübertragung durch Google in die USA stützt sich auf die EU-Standardvertragsklauseln: <a href="https://privacy.google.com/businesses/controllerterms/mccs/" target="_blank" rel="noopener">https://privacy.google.com/businesses/controllerterms/mccs/</a></p>
+    <p>Weitere Informationen: <a href="https://support.google.com/analytics/answer/6004245?hl=de" target="_blank" rel="noopener">https://support.google.com/analytics/answer/6004245?hl=de</a></p>
+    <p>Google LLC ist gemäß dem „EU-US Data Privacy Framework" (DPF) zertifiziert. Weitere detaillierte Informationen: <a href="https://www.dataprivacyframework.gov/s/participant-search/participantdetail?contact=true&id=a2zt000000001L5AAI&status=Activ" target="_blank" rel="noopener">EU-US Data Privacy Framework</a></p>
+
+    <h2>WOWING</h2>
+    <p>Diese Webseite nutzt die Dienste von WOWING für den Versand von personalisierten Video-Mailings. Anbieter ist die WOWING GmbH, Europastr. 12, 72622 Nürtingen. WOWING bietet eine SaaS-Lösung an, mit der personalisierte Video-Mailings versendet werden.</p>
+    <p>Dazu verarbeiten wir bzw. WOWING die von Ihnen eingegebene E-Mail-Adresse oder andere Kontaktdaten. WOWING bietet die Möglichkeit, unsere personalisierten Video-Mailings zu analysieren. Wir messen anhand von Öffnungsrate, Klickrate und ob das Video angeschaut wurde den Erfolg der versendeten Mailings.</p>
+    <p>Weitere Informationen zu WOWING finden Sie hier: <a href="https://wowing.com/datenschutz/" target="_blank" rel="noopener">https://wowing.com/datenschutz/</a></p>
+    <p>Rechtsgrundlage der Verarbeitung für die Aussendung der Mailings ist Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Sie können diese Einwilligung jederzeit für die Zukunft widerrufen. Die Rechtmäßigkeit der bereits erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.</p>
+    <p>WOWING betreibt seine Server in Deutschland.</p>
+    <p>Die von Ihnen eingegebene E-Mail-Adresse und Videos werden bis zu Ihrer Austragung bzw. Widerruf bei WOWING gespeichert. Nach Abbestellung bzw. Widerruf des Mailings werden die Daten bei WOWING gelöscht.</p>
+    <p>Wir haben mit WOWING einen Auftragsverarbeitungsvertrag nach Art. 28 DSGVO abgeschlossen.</p>
+
+    <h2>Google Ads</h2>
+    <p>Diese Website nutzt Google Ads, einen Dienst der Google Ireland Ltd. (Gordon House, Barrow Street, Dublin 4, Irland; im Folgenden „Google").</p>
+    <p>Wir nutzen Google Ads, um interessengerechte Werbeinhalte anhand der bei Google vorhandenen Nutzerdaten wie z. B. Interessen oder Standortdaten auszuspielen. Des Weiteren können wir interessengerechte Werbeinhalte in der Google-Suchmaschine sowie auf Drittwebseiten ausspielen, wenn Sie gezielte Suchbegriffe bei Google eingegeben haben. Wir untersuchen die Suchbegriffe, die zu unseren Werbeinhalten geführt haben, und analysieren wie viele Anzeigen, entsprechende Klicks generiert haben. Die daraus resultierenden Ergebnisse werden anschließend ausgewertet.</p>
+    <p>Zweck der Erhebung ist es, Ihnen zielgerichtete Werbung zur Verfügung zu stellen. Rechtsgrundlage hierfür ist Ihre Einwilligung gemäß Art. 6 Abs. 1 UAbs. 1 lit. a) DSGVO in Verbindung mit § 25 Abs. 1 TDDDG.</p>
+    <p>Sie haben das Recht, Ihre Einwilligung jederzeit mit Wirkung für die Zukunft zu widerrufen. Die Rechtmäßigkeit der Datenverarbeitung bis zum Widerruf bleibt unberührt.</p>
+    <p>Die Datenübertragung durch Google in die USA stützt sich auf die EU-Standardvertragsklauseln: <a href="https://privacy.google.com/businesses/controllerterms/mccs/" target="_blank" rel="noopener">https://privacy.google.com/businesses/controllerterms/mccs/</a></p>
+    <p>Weitere Informationen: <a href="http://www.google.com/policies/privacy/?hl=de" target="_blank" rel="noopener">http://www.google.com/policies/privacy/</a></p>
+
+    <h2>Google AdSense</h2>
+    <p>Der für die Verarbeitung Verantwortliche hat auf dieser Internetseite Google AdSense integriert. Google AdSense ist ein Online-Dienst, über welchen eine Vermittlung von Werbung auf Drittseiten ermöglicht wird. Google AdSense beruht auf einem Algorithmus, welcher die auf Drittseiten angezeigten Werbeanzeigen passend zu den Inhalten der jeweiligen Drittseite auswählt. Google AdSense gestattet ein interessenbezogenes Targeting des Internetnutzers, welches mittels Generierung von individuellen Benutzerprofilen umgesetzt wird.</p>
+    <p>Betreibergesellschaft der Google-AdSense-Komponente ist die Alphabet Inc., 1600 Amphitheatre Pkwy, Mountain View, CA 94043-1351, USA.</p>
+    <p>Der Zweck der Google-AdSense-Komponente ist die Einbindung von Werbeanzeigen auf unserer Internetseite. Google-AdSense setzt ein Cookie auf dem informationstechnologischen System der betroffenen Person. Mit der Setzung des Cookies wird der Alphabet Inc. eine Analyse der Benutzung unserer Internetseite ermöglicht. Durch jeden Aufruf einer der Einzelseiten dieser Internetseite, die durch den für die Verarbeitung Verantwortlichen betrieben wird und auf welcher eine Google-AdSense-Komponente integriert wurde, wird der Internetbrowser auf dem informationstechnologischen System der betroffenen Person automatisch durch die jeweilige Google-AdSense-Komponente veranlasst, Daten zum Zwecke der Online-Werbung und der Abrechnung von Provisionen an die Alphabet Inc. zu übermitteln.</p>
+    <p>Google AdSense verwendet zudem sogenannte Zählpixel. Ein Zählpixel ist eine Miniaturgrafik, die in Internetseiten eingebettet wird, um eine Logdatei-Aufzeichnung und eine Logdatei-Analyse zu ermöglichen, wodurch eine statistische Auswertung durchgeführt werden kann.</p>
+    <p>Zweck der Erhebung ist es, Ihnen zielgerichtete Werbung zur Verfügung zu stellen. Rechtsgrundlage hierfür ist Ihre Einwilligung gemäß Art. 6 Abs. 1 UAbs. 1 lit. a) DSGVO in Verbindung mit § 25 Abs. 1 TDDDG.</p>
+    <p>Google-AdSense wird unter diesem Link genauer erläutert: <a href="https://www.google.de/intl/de/adsense/start/" target="_blank" rel="noopener">www.google.de/intl/de/adsense/start/</a></p>
+
+    <h2>Google AdWords</h2>
+    <p>Der für die Verarbeitung Verantwortliche hat auf dieser Internetseite Google AdWords integriert. Google AdWords ist ein Dienst zur Internetwerbung, der es Werbetreibenden gestattet, sowohl Anzeigen in den Suchmaschinenergebnissen von Google als auch im Google-Werbenetzwerk zu schalten.</p>
+    <p>Betreibergesellschaft der Dienste von Google AdWords ist die Google Inc., 1600 Amphitheatre Pkwy, Mountain View, CA 94043-1351, USA.</p>
+    <p>Der Zweck von Google AdWords ist die Bewerbung unserer Internetseite durch die Einblendung von interessenrelevanter Werbung auf den Internetseiten von Drittunternehmen und in den Suchmaschinenergebnissen der Suchmaschine Google und eine Einblendung von Fremdwerbung auf unserer Internetseite.</p>
+    <p>Gelangt eine betroffene Person über eine Google-Anzeige auf unsere Internetseite, wird auf dem informationstechnologischen System der betroffenen Person durch Google ein sogenannter Conversion-Cookie abgelegt. Ein Conversion-Cookie verliert nach 30 Tagen seine Gültigkeit und dient nicht zur Identifikation der betroffenen Person.</p>
+    <p>Die durch die Nutzung des Conversion-Cookies erhobenen Daten und Informationen werden von Google verwendet, um Besuchsstatistiken für unsere Internetseite zu erstellen. Weder unser Unternehmen noch andere Werbekunden von Google-AdWords erhalten Informationen von Google, mittels derer die betroffene Person identifiziert werden könnte.</p>
+    <p>Rechtsgrundlage hierfür ist Ihre Einwilligung gemäß Art. 6 Abs. 1 UAbs. 1 lit. a) DSGVO in Verbindung mit § 25 Abs. 1 TDDDG.</p>
+
+    <h2>Google Dynamic Remarketing</h2>
+    <p>Diese Website verwendet Funktionen das Webanalysedienstes Google Dynamic Remarketing (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland; im Folgenden „Google"). Google Dynamic Remarketing erhebt und speichert Daten, aus denen anonymisiert, unter Zuhilfenahme von Pseudonymen, Nutzerprofile erstellt werden können. Auf diese Weise kann das Besucherverhalten analysiert werden und das Angebot der Website verbessert und bedarfsgerecht gestaltet werden.</p>
+    <p>Die Erhebung im Rahmen dieses Dienstes erfolgt nur nach Erteilung Ihrer ausdrücklichen Einwilligung. Rechtsgrundlage ist insofern die Einwilligung gemäß § 25 Abs. 1 TDDDG.</p>
+    <p>Weitere Informationen zum Datenschutz von Google Dynamic Remarketing: <a href="https://policies.google.com/privacy?gl=de" target="_blank" rel="noopener">https://policies.google.com/privacy</a></p>
+
+    <h2>Google Tag Manager</h2>
+    <p>Unsere Website verwendet den Google Tag Manager, einen Service der Google Ireland Ltd. (Gordon House, Barrow Street, Dublin 4, Irland). Damit können von uns Website-Tags über eine Oberfläche verwaltet werden. Der Google Tag Manager sorgt für die Auslösung anderer Tags, die ihrerseits unter Umständen Daten erfassen. Google Tag Manager greift nicht auf diese Daten zu.</p>
+    <p>Diese Datenverarbeitung erfolgt auf der Grundlage von Art. 6 Abs. 1 UAbs. 1 lit. a) DSGVO und § 25 Abs. 1 TDDDG.</p>
+    <p>Weitere Informationen: <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener">https://policies.google.com/privacy</a></p>
+
+    <h2>STRATO</h2>
+    <p>Der für die Verarbeitung Verantwortliche hat auf dieser Internetseite Komponenten von STRATO als Web-Hosting-Programm integriert.</p>
+    <p>Betreibergesellschaft von STRATO ist die STRATO AG, Pascalstraße 10, 10587 Berlin, Deutschland.</p>
+    <p>STRATO erhebt, verarbeitet und speichert die Daten, die Nutzer angeben, wenn sie bei STRATO bestellen. Hierzu gehört z. B. auch die IP-Adresse der Nutzer. Außerdem speichert und verarbeitet STRATO Daten über den Auftrags- und Zahlungsverlauf.</p>
+    <p>Log-Daten werden von den Servern von STRATO auch erfasst, wenn Besucher ihre Webseiten aufrufen. Folgende Log-Daten werden bei diesem Prozess erhoben: Kunden-Domain, Anonymisierte Client-IP, Request-Zeile, Timestamp, Status Code, Größe des Response Bodies, Referer, User Agent, Remote User.</p>
+    <p>Die geltenden Datenschutzbestimmungen: <a href="https://www.strato.de/datenschutz/" target="_blank" rel="noopener">https://www.strato.de/datenschutz/</a></p>
+
+    <h2>Trustpilot</h2>
+    <p>Der für die Verarbeitung Verantwortliche hat auf dieser Internetseite Komponenten des Dienstes Trustpilot integriert. Trustpilot.com ist eine dänische Website für Verbraucherbewertungen.</p>
+    <p>Betreibergesellschaft der Dienste von Trustpilot ist die Trustpilot A/S, Pilestraede 58, 5. Etage, 1112 Kopenhagen K, Dänemark.</p>
+    <p>Wenn Nutzer bei Trustpilot einen Nutzer-Account anlegen, eine Bewertung abgeben oder das Portal auf andere Weise nutzen, kann Trustpilot u. a. folgende personenbezogenen Daten erfassen und verarbeiten: Namen, E-Mail-Adressen sowie sonstige Kontaktinformationen, IP-Adressen, Browsereinstellungen, Standorte, Nutzernamen, Passwörter, Fotos und die bevorzugte Sprache.</p>
+    <p>Weitere Informationen und die geltenden Datenschutzbestimmungen von Trustpilot: <a href="https://de.legal.trustpilot.com/for-reviewers/end-user-privacy-terms" target="_blank" rel="noopener">https://de.legal.trustpilot.com/for-reviewers/end-user-privacy-terms</a></p>
+
+    <h2>Typeform</h2>
+    <p>Der für die Verarbeitung Verantwortliche hat auf dieser Internetseite Komponenten von Typeform integriert. Typeform ist ein in Barcelona ansässiges Online-Software-as-a-Service (SaaS)-Unternehmen, das sich auf die Erstellung von Online-Formularen und Online-Umfragen spezialisiert hat.</p>
+    <p>Betreibergesellschaft von Typeform ist der Typeform S.L., Carrer Bac de Roda, 163, 08018 Barcelona.</p>
+    <p>Die eingegebenen Daten werden bei diesem Dienst gespeichert und an uns weitergeleitet bzw. uns zugänglich gemacht. Eine eigene Nutzung dieser Daten durch Typeform findet nicht statt. Rechtsgrundlage für diese Datenverarbeitung ist Art. 6 Abs. 1 lit. f DSGVO (berechtigten Interessen des Verantwortlichen).</p>
+    <p>Weitere Informationen: <a href="https://typeform.com" target="_blank" rel="noopener">typeform.com</a></p>
+
+    <h2>Wistia</h2>
+    <p>Der für die Verarbeitung Verantwortliche hat auf dieser Internetseite Komponenten des Videoportals Wistia integriert.</p>
+    <p>Betreibergesellschaft ist die Wistia Inc., 17 Tudor Street Cambridge, Massachusetts, 02139 USA.</p>
+    <p>Wenn eine mit einem Wistia-Plugin ausgestattete Seiten besucht wird, wird eine Verbindung zu den Servern von Wistia hergestellt. Dabei wird dem Wistia-Server mitgeteilt, welche der Seiten wann besucht wurde. Zudem erlangt Wistia die IP-Adresse. Die von Wistia erfassten Informationen werden an den Wistia-Server in den USA übermittelt.</p>
+    <p>Nähere Informationen: <a href="https://wistia.com/privacy" target="_blank" rel="noopener">wistia.com/privacy</a></p>
+
+    <h2>Zapier</h2>
+    <p>Der für die Verarbeitung Verantwortliche hat auf dieser Internetseite Komponenten von Zapier integriert. Zapier dient der Integration von unterschiedlichen Datenbanken und Tools.</p>
+    <p>Betreibergesellschaft ist die Zapier Inc., 548 Market St #62411, San Francisco, California 94104, USA.</p>
+    <p>Dabei können Kundendaten mit Ausnahme der Zahlungsdaten übermittelt werden. Zapier sammelt Informationen der Nutzer (z. B. Name, E-Mail-Adresse, Adresse). Zudem sammelt Zapier automatisch Informationen der Nutzer, wenn ein neuer Account erstellt wird, wie z. B. Zahlungsinformationen.</p>
+    <p>Rechtsgrundlage hierfür ist Ihre Einwilligung gemäß Art. 6 Abs. 1 UAbs. 1 lit. a) DSGVO und § 25 Abs. 1 TDDDG.</p>
+    <p>Weitere Informationen: <a href="https://zapier.com" target="_blank" rel="noopener">zapier.com</a></p>
+
+    <h2>Meta Pixel</h2>
+    <p>Unsere Website benutzt die „Meta-Pixel"-Funktion der Meta Platforms Ireland Ltd. (4 Grand Canal Square, Dublin 2, Irland; im Folgenden: „Meta"). Diese setzt nach Ihrer Einwilligung ein sog. Pixel. Pixel sind Cookie-Elemente, welche die Kommunikation zwischen Browser und Server ermöglichen. Dies ermöglicht es uns, Werbeanzeigen an die richtigen Personen auszuliefern und den Erfolg unserer Werbeanzeigen zu messen.</p>
+    <p>Nachdem der Meta-Pixel eingerichtet wurde, wird er ausgelöst, wenn jemand bestimmte Handlungen auf unserer Website vornimmt. Der Pixel erfasst diese Handlungen (sogenannte „Events"). Hierdurch haben wir die Möglichkeit, Kunden mit weiteren Facebook-Anzeigen zukünftig erneut zu erreichen.</p>
+    <p>Die Rechtmäßigkeit der entsprechenden Datenverarbeitung basiert auf Ihrer Einwilligung gemäß § 25 Abs. 1 TDDDG. Sie haben das Recht, Ihre Einwilligung jederzeit mit Wirkung für die Zukunft zu widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt unberührt.</p>
+    <p>Mittels dieses Tools erfasste personenbezogene Daten unterliegen dem Bereich, der als durch uns veranlasste Datenverarbeitung klassifiziert wird, und damit der gemeinsamen Verantwortlichkeit mit Meta gemäß Art. 26 DSGVO. Die Vereinbarung ist unter folgendem Link einzusehen: <a href="https://www.facebook.com/legal/controller_addendum" target="_blank" rel="noopener">https://www.facebook.com/legal/controller_addendum</a></p>
+    <p>Die Datenverwendungsrichtlinien von Meta: <a href="http://de-de.facebook.com/about/privacy" target="_blank" rel="noopener">facebook.com/about/privacy</a></p>
+    <p>Um der Verwendung und Erhebung zu widersprechen: <a href="https://www.facebook.com/settings?tab=ads" target="_blank" rel="noopener">facebook.com/settings?tab=ads</a></p>
+
+    <h2>Vimeo (Video-Plugin)</h2>
+    <p>Diese Website bindet Videos über Vimeo.com ein, einen Dienst der Vimeo LLC (555 West 18th Street, New York, New York 10011, USA; im Folgenden: „Vimeo").</p>
+    <p>Wenn Sie Videos über Vimeo aufrufen, wird eine Verbindung zu den Servern von Vimeo in den USA hergestellt. Hierdurch werden bestimmte Informationen an Vimeo übermittelt. Es kann auch sein, dass Vimeo Cookies auf Ihrem Endgerät ablegt.</p>
+    <p>Rechtsgrundlage für die Verarbeitung der Daten ist Ihre Einwilligung gemäß Art. 6 Abs. 1 lit. a) DSGVO und § 25 Abs. 1 TDDDG.</p>
+    <p>Weitere Informationen zum Datenschutz durch Vimeo: <a href="https://vimeo.com/privacy" target="_blank" rel="noopener">vimeo.com/privacy</a></p>
+
+    <h2>Zoom</h2>
+    <p>Wir nutzen das Webkonferenz-Tool Zoom. Hierbei handelt es sich um eine Anwendung der Zoom Communications Inc. (55 Almaden Boulevard, 6th Floor, San Jose, CA 95113, USA; im Folgenden: „Zoom").</p>
+    <p>Bei der Nutzung von „Zoom" werden personenbezogene Daten verarbeitet. Der Umfang der Daten hängt dabei davon ab, welche Angaben zu Daten Sie vor bzw. bei der Teilnahme an einem „Online-Meeting" machen.</p>
+    <p>Folgende personenbezogene Daten sind Gegenstand der Verarbeitung:</p>
+    <ul>
+      <li><strong>Angaben zum Benutzer:</strong> Vorname, Nachname, Telefon (optional), E-Mail-Adresse (optional), Passwort (wenn „Single-Sign-On" nicht verwendet wird).</li>
+      <li><strong>Meeting-Metadaten:</strong> Thema, Beschreibung (optional), Teilnehmer-IP-Adressen, Geräte-/Hardware-Informationen, Standort, Verbindungsdaten.</li>
+      <li><strong>Bei Aufzeichnungen (optional):</strong> MP4-Datei aller Video-, Audio- und Präsentationsaufnahmen, M4A-Datei aller Audioaufnahmen, Textdatei des Online-Meeting-Chats.</li>
+      <li><strong>Bei Einwahl mit dem Telefon:</strong> Angabe zur eingehenden und ausgehenden Rufnummer, Ländername, Start- und Endzeit, ggf. weitere Verbindungsdaten.</li>
+      <li><strong>Text-, Audio- und Videodaten:</strong> Sie haben ggf. die Möglichkeit, in einem „Online-Meeting" die Chat-, Fragen- oder Umfragen-Funktionen zu nutzen.</li>
+    </ul>
+    <p>Die von Ihnen übermittelten personenbezogenen Daten werden ausschließlich zum Zweck der Durchführung des Online-Meetings im Rahmen eines Vertragsverhältnisses gemäß Art. 6 Abs. 1 UAbs. 1 lit. b) DSGVO erhoben und verarbeitet.</p>
+    <p>Weitere Details zur Datenschutzerklärung von Zoom: <a href="https://zoom.us/de-de/privacy.html" target="_blank" rel="noopener">zoom.us/de-de/privacy.html</a></p>
+
+    <h2>Social-Media-Auftritte</h2>
+    <p>Wir möchten gerne mit Ihnen und anderen Interessenten, Kunden und Nutzern in Kontakt treten. Hierfür nutzen wir unterschiedliche soziale Netzwerke.</p>
+    <p>In der Regel werden dabei Daten erhoben, welche im Rahmen von Marktforschungen und zu Werbezwecken genutzt werden. Zu solchen Daten zählt die Zuordnung Ihres Besuchs auf unserer Webseite zu Ihrem Benutzerkonto bei dem sozialen Netzwerk oder die Zuordnung mittels Ihrer gespeicherten Cookies oder Ihrer IP-Adresse. Dies geschieht üblicherweise durch die Erstellung von Nutzerprofilen und den daraus festgestellten Interessen.</p>
+    <p>Durch die Social Media-Auftritte möchten wir Ihnen Informationen auf einfachstem und schnellstem Wege mitteilen oder Ihnen die Möglichkeit geben, solche zu teilen. Daher ist, sofern Sie auf der jeweiligen Plattform nicht in die Datenverarbeitung eingewilligt haben, die Rechtsgrundlage unser berechtigtes Interesse gemäß Art. 6 Abs. 1 UAbs. 1 lit. f) DSGVO.</p>
+
+    <h3>Facebook (Auftritt)</h3>
+    <p>Wir betreiben einen Auftritt im sozialen Netzwerk Facebook (Facebook-Fanpage) um mit Facebook-Nutzern, die die Fanpage aufrufen, zu interagieren. Für diese Facebook-Fanpage sind wir mit Meta Platforms Ireland Limited, Merrion Road, Dublin 4, D04 X2K5, Irland, gemeinsamer Verantwortlicher gemäß Art. 26 der Datenschutzgrundverordnung (DSGVO).</p>
+    <p>Vereinbarung über die gemeinsame Verantwortlichkeit: <a href="https://www.facebook.com/legal/terms/page_controller_addendum" target="_blank" rel="noopener">facebook.com/legal/terms/page_controller_addendum</a></p>
+    <p>Datenschutzerklärung von Facebook: <a href="https://www.facebook.com/privacy/explanation" target="_blank" rel="noopener">facebook.com/privacy/explanation</a></p>
+
+    <h3>YouTube (Auftritt)</h3>
+    <p>Wir betreiben einen Auftritt auf der Videoplattform YouTube. Hierbei handelt es sich um eine Anwendung der Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Irland).</p>
+    <p>Sollten Sie bei YouTube in Datenverarbeitungen eingewilligt haben, ist Ihre Einwilligung gemäß Art. 6 Abs. 1 UAbs. 1 lit. a) DSGVO und § 25 Abs. 1 TDDDG die Rechtsgrundlage der Verarbeitung.</p>
+    <p>Weitere Informationen: <a href="http://www.google.de/intl/de/policies/privacy/" target="_blank" rel="noopener">google.de/intl/de/policies/privacy/</a></p>
+
+    <h3>Instagram (Auftritt)</h3>
+    <p>Wir betreiben einen Auftritt in dem sozialen Netzwerk Instagram. Anbieter ist die Meta Platforms Ireland Limited, Merrion Road, Dublin 4, D04 X2K5, Irland.</p>
+    <p>Sollten Sie bei Instagram in Datenverarbeitungen eingewilligt haben, ist Ihre Einwilligung gemäß Art. 6 Abs. 1 UAbs. 1 lit. a) DSGVO und § 25 Abs. 1 TDDDG die Rechtsgrundlage der Verarbeitung.</p>
+    <p>Weitere Informationen: <a href="https://privacycenter.instagram.com/policy/" target="_blank" rel="noopener">privacycenter.instagram.com/policy/</a></p>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">© 2026 4 Digital GmbH · Das Dreiwerk</div>
+    <div class="footer-links">
+      <a href="das-dreiwerk-shk-elektro.html">Startseite</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

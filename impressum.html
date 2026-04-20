@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Impressum – Das Dreiwerk</title>
+<meta name="description" content="Impressum der 4 Digital GmbH (Das Dreiwerk), Hannover." />
+<meta name="robots" content="noindex,follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===========================================================
+   Das Dreiwerk — Base-Styles für Rechtsseiten
+   (Impressum, Datenschutz, AGB)
+   =========================================================== */
+:root{
+  --ink: #001180;
+  --ink-hover: #000a52;
+  --bg: #ffffff;
+  --bg-soft: #fafafa;
+  --bg-alt: #f4f4f6;
+  --char: #0a0a0f;
+  --muted: #666670;
+  --muted-soft: #8a8a95;
+  --line: rgba(10, 10, 15, 0.08);
+  --line-strong: rgba(10, 10, 15, 0.14);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--char);background:var(--bg);
+  font-weight:400;line-height:1.6;letter-spacing:-0.008em;
+}
+a{color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px;transition:color .2s}
+a:hover{color:var(--ink-hover)}
+::selection{background:var(--ink);color:#fff}
+
+/* NAV */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 32px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(20px) saturate(1.8);
+  -webkit-backdrop-filter:blur(20px) saturate(1.8);
+  border-bottom:1px solid var(--line);
+}
+.logo{
+  display:flex;align-items:center;gap:10px;
+  font-weight:600;font-size:17px;color:var(--char);letter-spacing:-.02em;
+  text-decoration:none;
+}
+.logo-mark{display:inline-flex;align-items:center;gap:2.5px}
+.logo-mark span{display:block;width:2.5px;border-radius:1px;background:var(--ink)}
+.logo-mark span:nth-child(1){height:11px}
+.logo-mark span:nth-child(2){height:16px}
+.logo-mark span:nth-child(3){height:11px}
+.nav-back{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:14px;font-weight:500;color:var(--char);
+  padding:8px 14px;border-radius:6px;transition:background .2s;
+  text-decoration:none;
+}
+.nav-back:hover{background:var(--bg-alt);color:var(--char)}
+.nav-back svg{width:14px;height:14px}
+
+/* HEADER */
+.legal-header{
+  padding:140px 32px 64px;
+  border-bottom:1px solid var(--line);
+  background:var(--bg);
+}
+.legal-header-inner{max-width:760px;margin:0 auto}
+.legal-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:500;color:var(--ink);margin-bottom:20px;
+}
+.legal-eyebrow::before{content:"";width:16px;height:1px;background:var(--ink)}
+.legal-title{
+  font-weight:600;font-size:clamp(36px,5vw,56px);
+  line-height:1.05;letter-spacing:-.03em;color:var(--char);margin-bottom:16px;
+}
+.legal-sub{
+  font-size:16px;line-height:1.55;color:var(--muted);max-width:560px;
+}
+.legal-updated{
+  margin-top:24px;display:inline-flex;align-items:center;gap:10px;
+  padding:6px 12px;border-radius:999px;background:var(--bg-alt);
+  font-size:12px;color:var(--muted);font-weight:500;
+}
+.legal-updated-dot{width:6px;height:6px;border-radius:50%;background:var(--ink)}
+
+/* CONTENT */
+main{padding:64px 32px 120px}
+.legal-content{
+  max-width:760px;margin:0 auto;
+  font-size:15.5px;line-height:1.7;color:var(--char);
+}
+.legal-content p{margin-bottom:18px;color:var(--char)}
+.legal-content h2{
+  font-size:clamp(22px,2.4vw,28px);font-weight:600;
+  letter-spacing:-.02em;line-height:1.25;color:var(--char);
+  margin-top:56px;margin-bottom:20px;
+  padding-top:28px;border-top:1px solid var(--line);
+}
+.legal-content h2:first-child{margin-top:0;padding-top:0;border-top:none}
+.legal-content h3{
+  font-size:17px;font-weight:600;letter-spacing:-.01em;
+  color:var(--char);margin-top:32px;margin-bottom:12px;
+}
+.legal-content ul, .legal-content ol{
+  margin:16px 0 24px 24px;padding-left:0;
+}
+.legal-content ul li, .legal-content ol li{
+  margin-bottom:8px;padding-left:8px;line-height:1.65;
+}
+.legal-content ol{counter-reset:item;list-style:none;margin-left:0}
+.legal-content ol > li{
+  counter-increment:item;position:relative;padding-left:36px;margin-bottom:14px;
+}
+.legal-content ol > li::before{
+  content:counter(item) ".";position:absolute;left:0;top:0;
+  font-weight:600;color:var(--ink);
+  font-variant-numeric:tabular-nums;min-width:28px;
+}
+.legal-content strong{font-weight:600;color:var(--char)}
+.legal-content hr{
+  margin:40px 0;border:none;height:1px;background:var(--line);
+}
+.legal-content a{word-break:break-word}
+
+/* Contact Card */
+.contact-card{
+  padding:24px 28px;border:1px solid var(--line);border-radius:12px;
+  background:var(--bg-soft);margin:24px 0 32px;
+}
+.contact-card strong{display:block;margin-bottom:10px;font-size:16px}
+.contact-card p{margin-bottom:4px;color:var(--char)}
+.contact-card a{color:var(--ink)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:40px 32px 32px;background:var(--bg)}
+.footer-inner{
+  max-width:760px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:24px;flex-wrap:wrap;
+}
+.footer-links{
+  display:flex;gap:24px;font-size:13px;
+}
+.footer-links a{color:var(--muted);text-decoration:none;font-weight:500;transition:color .2s}
+.footer-links a:hover{color:var(--char)}
+.footer-copy{font-size:12px;color:var(--muted-soft)}
+
+@media (max-width: 640px){
+  .nav{padding:12px 20px}
+  .legal-header{padding:110px 20px 44px}
+  main{padding:44px 20px 80px}
+  .legal-content h2{margin-top:40px;padding-top:20px}
+  .footer-inner{flex-direction:column;align-items:flex-start;gap:12px}
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="das-dreiwerk-shk-elektro.html" class="logo" aria-label="Zurück zur Startseite">
+    <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+    Das Dreiwerk
+  </a>
+  <a href="das-dreiwerk-shk-elektro.html" class="nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Zurück zur Startseite
+  </a>
+</nav>
+
+<!-- HEADER -->
+<section class="legal-header">
+  <div class="legal-header-inner">
+    <div class="legal-eyebrow">Rechtliches</div>
+    <h1 class="legal-title">Impressum</h1>
+    <p class="legal-sub">Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG) sowie § 18 Abs. 2 Medienstaatsvertrag (MStV).</p>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<main>
+  <div class="legal-content">
+
+    <h2>Anbieter</h2>
+    <div class="contact-card">
+      <strong>4 Digital GmbH</strong>
+      <p>Kirchhorster Straße 31</p>
+      <p>30659 Hannover</p>
+      <p>Telefon: <a href="tel:+495115154138​0">0511 – 515 413 80</a></p>
+      <p>E-Mail: <a href="mailto:info@dasdreiwerk.de">info@dasdreiwerk.de</a></p>
+      <p>Web: <a href="https://www.dasdreiwerk.de" target="_blank" rel="noopener">www.dasdreiwerk.de</a></p>
+    </div>
+
+    <h2>Vertretungsberechtigte Geschäftsführer</h2>
+    <p>Herr Max Phillip Grinda<br>Herr Felix Hahnewald</p>
+
+    <h2>Registereintrag</h2>
+    <p>Handelsregister: Amtsgericht Hannover<br>Registernummer: HRB 225306</p>
+
+    <h2>Umsatzsteuer-Identifikationsnummer</h2>
+    <p>Umsatzsteuer-ID gemäß § 27 a Umsatzsteuergesetz:<br><strong>DE332339252</strong></p>
+
+    <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+    <p>Herr Max Phillip Grinda und Herr Felix Hahnewald<br>Kirchhorster Straße 31, 30659 Hannover</p>
+
+    <h2>EU-Streitschlichtung</h2>
+    <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>.<br>Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
+
+    <h2>Verbraucherstreitbeilegung / Universalschlichtungsstelle</h2>
+    <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+    <h2>Hinweis zur Nutzung der Kontaktdaten</h2>
+    <p>Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit widersprochen. Wir behalten uns rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.</p>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">© 2026 4 Digital GmbH · Das Dreiwerk</div>
+    <div class="footer-links">
+      <a href="das-dreiwerk-shk-elektro.html">Startseite</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
