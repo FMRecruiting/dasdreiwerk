@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Erstgespräch vereinbaren – Das Dreiwerk</title>
+<meta name="description" content="Sichern Sie sich Ihr kostenloses, unverbindliches Erstgespräch. 15 Minuten, ehrliche Einschätzung." />
+<meta name="robots" content="index,follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #001180;
+    --ink-hover: #000a52;
+    --bg: #ffffff;
+    --bg-soft: #fafafa;
+    --bg-alt: #f4f4f6;
+    --char: #0a0a0f;
+    --muted: #666670;
+    --muted-soft: #8a8a95;
+    --line: rgba(10, 10, 15, 0.08);
+    --line-strong: rgba(10, 10, 15, 0.14);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    color:var(--char);background:var(--bg);
+    font-weight:400;line-height:1.55;letter-spacing:-0.008em;
+    overflow-x:hidden;
+  }
+  a{color:var(--ink);text-decoration:none;transition:color .2s}
+  a:hover{color:var(--ink-hover)}
+  ::selection{background:var(--ink);color:#fff}
+
+  /* NAV */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 32px;
+    display:flex;align-items:center;justify-content:space-between;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(20px) saturate(1.8);
+    -webkit-backdrop-filter:blur(20px) saturate(1.8);
+    border-bottom:1px solid var(--line);
+  }
+  .logo{
+    display:flex;align-items:center;gap:10px;
+    font-weight:600;font-size:17px;color:var(--char);letter-spacing:-.02em;
+  }
+  .logo-mark{display:inline-flex;align-items:center;gap:2.5px}
+  .logo-mark span{display:block;width:2.5px;border-radius:1px;background:var(--ink)}
+  .logo-mark span:nth-child(1){height:11px}
+  .logo-mark span:nth-child(2){height:16px}
+  .logo-mark span:nth-child(3){height:11px}
+  .nav-back{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:14px;font-weight:500;color:var(--char);
+    padding:8px 14px;border-radius:6px;transition:background .2s;
+  }
+  .nav-back:hover{background:var(--bg-alt);color:var(--char)}
+  .nav-back svg{width:14px;height:14px}
+
+  /* HERO */
+  .hero{
+    padding:140px 32px 60px;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-inner{
+    max-width:1120px;margin:0 auto;
+    display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;
+  }
+  .hero-left{position:sticky;top:120px}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:500;color:var(--ink);margin-bottom:20px;
+  }
+  .eyebrow::before{content:"";width:16px;height:1px;background:var(--ink)}
+  h1{
+    font-weight:600;font-size:clamp(36px,4.8vw,52px);
+    line-height:1.05;letter-spacing:-.03em;color:var(--char);margin-bottom:22px;
+  }
+  h1 .accent{color:var(--ink)}
+  .hero-sub{
+    font-size:17px;line-height:1.6;color:var(--muted);
+    margin-bottom:40px;max-width:480px;
+  }
+
+  /* Benefits */
+  .benefits{
+    display:flex;flex-direction:column;gap:0;
+    border-top:1px solid var(--line);
+  }
+  .benefit{
+    display:grid;grid-template-columns:40px 1fr;gap:18px;
+    padding:24px 0;border-bottom:1px solid var(--line);
+    align-items:start;
+  }
+  .benefit-icon{
+    width:36px;height:36px;border-radius:8px;
+    background:var(--bg-alt);border:1px solid var(--line);
+    color:var(--ink);display:grid;place-items:center;flex-shrink:0;
+  }
+  .benefit-icon svg{width:18px;height:18px;stroke-width:1.5}
+  .benefit-title{
+    font-size:15px;font-weight:600;color:var(--char);
+    margin-bottom:4px;line-height:1.3;
+  }
+  .benefit-desc{
+    font-size:14px;line-height:1.55;color:var(--muted);
+  }
+
+  /* Form Card */
+  .form-card{
+    background:var(--bg);border:1px solid var(--line);
+    border-radius:16px;padding:40px;
+    box-shadow:0 30px 80px -30px rgba(0,17,128,.12);
+  }
+  .form-card-head{
+    margin-bottom:28px;padding-bottom:24px;
+    border-bottom:1px solid var(--line);
+  }
+  .form-card-label{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12px;font-weight:500;color:var(--ink);
+    text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;
+  }
+  .form-card-label-dot{
+    width:7px;height:7px;border-radius:50%;background:var(--ink);
+    box-shadow:0 0 0 4px rgba(0,17,128,.15);
+    animation:pulseDot 2.4s ease-in-out infinite;
+  }
+  @keyframes pulseDot{
+    0%,100%{box-shadow:0 0 0 4px rgba(0,17,128,.15)}
+    50%{box-shadow:0 0 0 8px rgba(0,17,128,.05)}
+  }
+  .form-card h2{
+    font-size:22px;font-weight:600;letter-spacing:-.02em;
+    color:var(--char);line-height:1.25;margin-bottom:8px;
+  }
+  .form-card p{
+    font-size:14px;line-height:1.55;color:var(--muted);
+  }
+
+  /* Wufoo Form Wrapper */
+  .wufoo-wrapper{
+    min-height:500px;
+    background:var(--bg);
+  }
+  .wufoo-wrapper iframe{
+    width:100%!important;border:none!important;
+  }
+  #wufoo-zf31gsg1fb96ar{
+    width:100%;
+  }
+
+  /* Loading state */
+  .wufoo-loading{
+    display:flex;flex-direction:column;align-items:center;
+    justify-content:center;min-height:300px;gap:16px;
+  }
+  .wufoo-spinner{
+    width:32px;height:32px;border-radius:50%;
+    border:2px solid var(--line);
+    border-top-color:var(--ink);
+    animation:spin 0.8s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .wufoo-loading-text{
+    font-size:13px;color:var(--muted);
+  }
+
+  /* Trust Bar */
+  .trust-bar{
+    background:var(--bg-soft);border-top:1px solid var(--line);
+    padding:32px 32px;
+  }
+  .trust-bar-inner{
+    max-width:1120px;margin:0 auto;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:32px;
+  }
+  .trust-item{
+    display:flex;flex-direction:column;gap:6px;
+    padding-left:20px;border-left:1px solid var(--line);
+  }
+  .trust-item:first-child{border-left:none;padding-left:0}
+  .trust-item-value{
+    font-size:20px;font-weight:600;color:var(--char);
+    letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums;
+  }
+  .trust-item-label{
+    font-size:12px;color:var(--muted);line-height:1.3;
+  }
+
+  /* Footer */
+  footer{
+    padding:40px 32px 32px;background:var(--bg);
+    border-top:1px solid var(--line);
+  }
+  .footer-inner{
+    max-width:1120px;margin:0 auto;
+    display:flex;justify-content:space-between;align-items:center;
+    gap:24px;flex-wrap:wrap;
+  }
+  .footer-links{
+    display:flex;gap:24px;font-size:13px;
+  }
+  .footer-links a{color:var(--muted);font-weight:500;transition:color .2s}
+  .footer-links a:hover{color:var(--char)}
+  .footer-copy{font-size:12px;color:var(--muted-soft)}
+
+  @media (max-width: 960px){
+    .nav{padding:12px 20px}
+    .hero{padding:110px 20px 40px}
+    .hero-inner{grid-template-columns:1fr;gap:40px}
+    .hero-left{position:static}
+    h1{font-size:34px}
+    .form-card{padding:28px 24px}
+    .trust-bar{padding:24px 20px}
+    .trust-bar-inner{grid-template-columns:repeat(2,1fr);gap:20px}
+    .trust-item{padding-left:16px}
+    .trust-item:nth-child(3){border-left:none;padding-left:0}
+    .footer-inner{flex-direction:column;align-items:flex-start;gap:12px}
+  }
+  @media (max-width: 520px){
+    .nav{padding:10px 16px}
+    .nav-back span{display:none}
+    .hero{padding:100px 16px 32px}
+    h1{font-size:30px}
+    .hero-sub{font-size:16px}
+    .form-card{padding:24px 20px;border-radius:12px}
+    .trust-bar-inner{grid-template-columns:1fr;gap:16px}
+    .trust-item{padding-left:0;border-left:none;
+      padding-bottom:16px;border-bottom:1px solid var(--line)}
+    .trust-item:last-child{border-bottom:none;padding-bottom:0}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="das-dreiwerk-shk-elektro.html" class="logo" aria-label="Zurück zur Startseite">
+    <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+    Das Dreiwerk
+  </a>
+  <a href="das-dreiwerk-shk-elektro.html" class="nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span>Zurück zur Startseite</span>
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="eyebrow">Kostenloses Erstgespräch</div>
+      <h1>15 Minuten, die Ihre Personalplanung <span class="accent">vom Kopf auf die Füße stellen.</span></h1>
+      <p class="hero-sub">Eine ehrliche Einschätzung, ob unser 3-Schritte-System zu Ihrem Betrieb passt – und welche Ergebnisse für Sie realistisch sind.</p>
+
+      <div class="benefits">
+        <div class="benefit">
+          <div class="benefit-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="benefit-title">15 Minuten Ihrer Zeit</div>
+            <div class="benefit-desc">Wir respektieren Ihren Terminkalender. Kein Smalltalk, direkt auf den Punkt.</div>
+          </div>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <div>
+            <div class="benefit-title">Regionale Marktanalyse</div>
+            <div class="benefit-desc">Wir zeigen Ihnen, wie viele Fachkräfte in 50 km Umkreis erreichbar sind.</div>
+          </div>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          </div>
+          <div>
+            <div class="benefit-title">Konkrete ROI-Kalkulation</div>
+            <div class="benefit-desc">Was eine Zusammenarbeit monatlich kostet – und rechnerisch einbringt.</div>
+          </div>
+        </div>
+        <div class="benefit">
+          <div class="benefit-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <div class="benefit-title">Ehrliche Einschätzung</div>
+            <div class="benefit-desc">Wenn wir nicht die Richtigen für Sie sind, sagen wir das im Gespräch.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <aside class="form-card">
+      <div class="form-card-head">
+        <div class="form-card-label">
+          <span class="form-card-label-dot"></span>
+          Unverbindlich · Kostenfrei
+        </div>
+        <h2>Ihre Angaben</h2>
+        <p>Füllen Sie das kurze Formular aus. Wir melden uns innerhalb von 24 Stunden bei Ihnen, um einen Termin zu vereinbaren.</p>
+      </div>
+
+      <div class="wufoo-wrapper">
+        <div id="wufoo-zf31gsg1fb96ar">
+          <div class="wufoo-loading">
+            <div class="wufoo-spinner"></div>
+            <div class="wufoo-loading-text">Formular wird geladen …</div>
+          </div>
+          <noscript>
+            <p style="text-align:center;padding:40px 20px;color:var(--muted)">
+              Bitte aktivieren Sie JavaScript oder <a href="https://fmrecruiting.wufoo.com/forms/zf31gsg1fb96ar" target="_blank" rel="noopener">füllen Sie das Formular direkt aus</a>.
+            </p>
+          </noscript>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item">
+      <div class="trust-item-value">seit 2021</div>
+      <div class="trust-item-label">Planbares Recruiting im Handwerk</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-item-value">50+</div>
+      <div class="trust-item-label">Betriebe als Partner</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-item-value">6–10 Wo.</div>
+      <div class="trust-item-label">Bis zur Einstellung</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-item-value">Hannover</div>
+      <div class="trust-item-label">Standort mit DACH-Reichweite</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">© 2026 4 Digital GmbH · Das Dreiwerk</div>
+    <div class="footer-links">
+      <a href="das-dreiwerk-shk-elektro.html">Startseite</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WUFOO FORM EMBED -->
+<script type="text/javascript">
+var zf31gsg1fb96ar;
+(function(d, t) {
+  var s = d.createElement(t),
+      options = {
+        'userName':'fmrecruiting',
+        'formHash':'zf31gsg1fb96ar',
+        'autoResize':true,
+        'height':'466',
+        'async':true,
+        'host':'wufoo.com',
+        'header':'show',
+        'ssl':true
+      };
+  s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'secure.wufoo.com/scripts/embed/form.js';
+  s.onload = s.onreadystatechange = function() {
+    var rs = this.readyState;
+    if (rs) if (rs != 'complete') if (rs != 'loaded') return;
+    try {
+      zf31gsg1fb96ar = new WufooForm();
+      zf31gsg1fb96ar.initialize(options);
+      zf31gsg1fb96ar.display();
+    } catch (e) {}
+  };
+  var scr = d.getElementsByTagName(t)[0],
+      par = scr.parentNode;
+  par.insertBefore(s, scr);
+})(document, 'script');
+</script>
+
+</body>
+</html>
