@@ -526,6 +526,123 @@
     50%{box-shadow:0 0 0 8px rgba(0,17,128,.05)}
   }
 
+  /* ============ VIDEO MODAL ============ */
+  .video-card{
+    cursor:pointer;padding:0;
+    font-family:inherit;text-align:left;
+    width:100%;
+  }
+  .video-card:focus-visible{
+    outline:2px solid var(--ink);outline-offset:3px;
+  }
+  .video-modal{
+    position:fixed;inset:0;z-index:200;
+    display:none;align-items:center;justify-content:center;
+    padding:32px 20px;
+  }
+  .video-modal.open{display:flex}
+  .video-modal-backdrop{
+    position:absolute;inset:0;
+    background:rgba(10,10,15,.85);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+    animation:backdropIn .25s ease both;
+  }
+  @keyframes backdropIn{from{opacity:0}to{opacity:1}}
+  .video-modal-dialog{
+    position:relative;z-index:1;
+    width:100%;max-width:960px;
+    background:var(--char);color:#fff;
+    border-radius:14px;overflow:hidden;
+    box-shadow:0 40px 120px -30px rgba(0,0,0,.6);
+    animation:dialogIn .3s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes dialogIn{
+    from{opacity:0;transform:translateY(20px) scale(.98)}
+    to{opacity:1;transform:translateY(0) scale(1)}
+  }
+  .video-modal-header{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 20px;gap:16px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    background:var(--char);
+  }
+  .video-modal-title{
+    font-size:14px;font-weight:500;color:#fff;
+    letter-spacing:-.005em;
+  }
+  .video-modal-close{
+    width:36px;height:36px;border-radius:50%;
+    background:rgba(255,255,255,.08);color:#fff;
+    display:grid;place-items:center;
+    transition:background .2s, transform .2s;
+  }
+  .video-modal-close:hover{
+    background:rgba(255,255,255,.16);transform:scale(1.05);
+  }
+  .video-modal-close svg{width:16px;height:16px}
+  .video-modal-body{
+    position:relative;width:100%;
+    aspect-ratio:9/14;
+    max-height:calc(100vh - 140px);
+    background:var(--char);
+  }
+  .video-modal-iframe{
+    position:absolute;inset:0;width:100%;height:100%;
+    border:none;display:none;
+  }
+  .video-modal-iframe.loaded{display:block}
+  .video-modal-loading{
+    position:absolute;inset:0;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:16px;color:rgba(255,255,255,.6);
+  }
+  .video-modal-spinner{
+    width:36px;height:36px;border-radius:50%;
+    border:2px solid rgba(255,255,255,.15);
+    border-top-color:#fff;
+    animation:spin .8s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .video-modal-loading-text{font-size:13px}
+  .video-modal-fallback{
+    position:absolute;inset:0;display:none;
+    flex-direction:column;align-items:center;justify-content:center;
+    gap:18px;padding:40px 32px;text-align:center;
+  }
+  .video-modal-fallback.active{display:flex}
+  .video-modal-fallback svg{
+    width:48px;height:48px;color:rgba(255,255,255,.4);
+  }
+  .video-modal-fallback h3{
+    font-size:20px;font-weight:600;color:#fff;
+    letter-spacing:-.02em;line-height:1.25;
+  }
+  .video-modal-fallback p{
+    font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.6);
+    max-width:380px;
+  }
+  .video-modal-fallback-btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:12px 20px;border-radius:8px;
+    background:#fff;color:var(--ink);font-weight:500;font-size:14px;
+    text-decoration:none;transition:all .2s;margin-top:8px;
+  }
+  .video-modal-fallback-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 8px 20px -8px rgba(255,255,255,.3);
+  }
+  .video-modal-fallback-btn svg{
+    width:14px;height:14px;color:var(--ink);
+  }
+  body.modal-open{overflow:hidden}
+
+  @media (max-width: 640px){
+    .video-modal{padding:12px}
+    .video-modal-body{aspect-ratio:9/16;max-height:calc(100vh - 100px)}
+    .video-modal-header{padding:12px 16px}
+  }
+
   /* ============ METHODE ============ */
   .method-list{display:flex;flex-direction:column}
   .method-row{
@@ -1044,7 +1161,7 @@
     <a href="#team">Über uns</a>
     <a href="#faq">FAQ</a>
   </div>
-  <a href="#kontakt" class="btn btn-primary nav-cta">
+  <a href="erstgespraech.html" class="btn btn-primary nav-cta">
     <span>Erstgespräch vereinbaren</span>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
   </a>
@@ -1069,7 +1186,7 @@
       Ein klares 3-Schritte-System, das Ihre Arbeitgebermarke stärkt, passende Bewerber anzieht und offene Schlüsselpositionen zuverlässig besetzt – ohne Headhunter, ohne Streuverluste.
     </p>
     <div class="hero-cta">
-      <a href="#kontakt" class="btn btn-primary">
+      <a href="erstgespraech.html" class="btn btn-primary">
         Kostenloses Erstgespräch vereinbaren
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
@@ -1161,7 +1278,7 @@
 
         <div class="cost-text">Plus Folgekosten: Fluktuation, Überstunden, Image­verlust bei Stammkunden, die auf Termine warten müssen. Die eigentliche Rechnung ist deutlich größer.</div>
 
-        <a href="#kontakt" class="calc-cta">
+        <a href="erstgespraech.html" class="calc-cta">
           Jetzt Erstgespräch sichern – bevor Sie weiter Umsatz verlieren
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
@@ -1324,7 +1441,7 @@
     </div>
 
     <div class="video-grid">
-      <a class="video-card" href="https://maximilian.picflow.com/01hhya4uFlvg4CEl/asset_ZqC9du32viDYwCID?autoplay=true" target="_blank" rel="noopener">
+      <button class="video-card" data-video-url="https://maximilian.picflow.com/01hhya4uFlvg4CEl/asset_ZqC9du32viDYwCID?autoplay=true" data-video-title="Arbeitgeber-Portrait I" aria-label="Video abspielen: Arbeitgeber-Portrait I">
         <div class="video-thumb">
           <div class="video-play" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -1335,9 +1452,9 @@
           <div class="video-label">Recruiting-Video</div>
           <div class="video-title">Arbeitgeber-Portrait I</div>
         </div>
-      </a>
+      </button>
 
-      <a class="video-card" href="https://maximilian.picflow.com/01hhya4uFlvg4CEl/asset_rzgbDgGfReXW72kF?autoplay=true" target="_blank" rel="noopener">
+      <button class="video-card" data-video-url="https://maximilian.picflow.com/01hhya4uFlvg4CEl/asset_rzgbDgGfReXW72kF?autoplay=true" data-video-title="Arbeitgeber-Portrait II" aria-label="Video abspielen: Arbeitgeber-Portrait II">
         <div class="video-thumb video-thumb-2">
           <div class="video-play" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -1348,9 +1465,9 @@
           <div class="video-label">Recruiting-Video</div>
           <div class="video-title">Arbeitgeber-Portrait II</div>
         </div>
-      </a>
+      </button>
 
-      <a class="video-card" href="https://maximilian.picflow.com/01hhya4uFlvg4CEl/asset_U82B2eMMIEJJtjFI?autoplay=true" target="_blank" rel="noopener">
+      <button class="video-card" data-video-url="https://maximilian.picflow.com/01hhya4uFlvg4CEl/asset_U82B2eMMIEJJtjFI?autoplay=true" data-video-title="Arbeitgeber-Portrait III" aria-label="Video abspielen: Arbeitgeber-Portrait III">
         <div class="video-thumb video-thumb-3">
           <div class="video-play" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -1361,7 +1478,7 @@
           <div class="video-label">Recruiting-Video</div>
           <div class="video-title">Arbeitgeber-Portrait III</div>
         </div>
-      </a>
+      </button>
     </div>
 
     <div class="videos-note">
@@ -1702,7 +1819,7 @@
         <div class="standort-title">Hannover — Kirchhorster Straße 31</div>
         <div class="standort-text">Auf rund 300 m² in 30659 Hannover. Von hier aus begleiten wir Handwerksbetriebe im gesamten DACH-Raum – digital und persönlich.</div>
       </div>
-      <a href="#kontakt" class="btn btn-primary">
+      <a href="erstgespraech.html" class="btn btn-primary">
         Team kennenlernen
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
@@ -1718,7 +1835,7 @@
         <div class="potential-label">Kostenfreie Analyse</div>
         <h3>Der Potenzial-Check für Ihren Betrieb.</h3>
         <p>In 15 Minuten erfahren Sie, ob Ihr Betrieb das Potenzial hat, mit unserem 3-Schritte-System planbar Fachkräfte zu gewinnen – und welche Ergebnisse realistisch sind.</p>
-        <a href="#kontakt" class="btn btn-white">
+        <a href="erstgespraech.html" class="btn btn-white">
           Jetzt Potenzial prüfen
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
@@ -1824,6 +1941,35 @@
   </div>
 </section>
 
+<!-- VIDEO MODAL -->
+<div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle" aria-hidden="true">
+  <div class="video-modal-backdrop" data-close-modal></div>
+  <div class="video-modal-dialog">
+    <div class="video-modal-header">
+      <div class="video-modal-title" id="videoModalTitle">Recruiting-Video</div>
+      <button class="video-modal-close" aria-label="Video schließen" data-close-modal>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="video-modal-body">
+      <div class="video-modal-loading">
+        <div class="video-modal-spinner"></div>
+        <div class="video-modal-loading-text">Video wird geladen …</div>
+      </div>
+      <iframe class="video-modal-iframe" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      <div class="video-modal-fallback">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M10 8l6 4-6 4V8z"/></svg>
+        <h3>Video in neuem Tab öffnen</h3>
+        <p>Das Video lässt sich aus technischen Gründen nicht direkt hier abspielen. Klicken Sie unten, um es in einem neuen Fenster zu öffnen.</p>
+        <a class="video-modal-fallback-btn" target="_blank" rel="noopener">
+          Video starten
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
@@ -1855,7 +2001,7 @@
     <div class="footer-col">
       <h5>Kontakt</h5>
       <ul>
-        <li><a href="#kontakt">Erstgespräch</a></li>
+        <li><a href="erstgespraech.html">Erstgespräch</a></li>
         <li><a href="mailto:kontakt@dasdreiwerk.de">E-Mail schreiben</a></li>
       </ul>
     </div>
@@ -1938,6 +2084,102 @@
     ordersInput.addEventListener('input', () => calculate(true));
     volumeInput.addEventListener('input', () => calculate(true));
     calculate(false);
+  })();
+
+  // Video-Modal
+  (function(){
+    const modal = document.getElementById('videoModal');
+    if(!modal) return;
+
+    const iframe = modal.querySelector('.video-modal-iframe');
+    const loading = modal.querySelector('.video-modal-loading');
+    const fallback = modal.querySelector('.video-modal-fallback');
+    const fallbackBtn = modal.querySelector('.video-modal-fallback-btn');
+    const titleEl = modal.querySelector('#videoModalTitle');
+    let loadTimer = null;
+    let iframeLoaded = false;
+
+    function openModal(url, title){
+      iframeLoaded = false;
+      titleEl.textContent = title || 'Recruiting-Video';
+
+      // Reset states
+      iframe.classList.remove('loaded');
+      fallback.classList.remove('active');
+      loading.style.display = 'flex';
+      fallbackBtn.href = url;
+
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+
+      // Start loading the iframe
+      iframe.src = url;
+
+      // Timeout: falls iframe nach 6s nicht geladen ist (z.B. X-Frame-Options-Block),
+      // zeige Fallback an
+      clearTimeout(loadTimer);
+      loadTimer = setTimeout(() => {
+        if(!iframeLoaded){
+          loading.style.display = 'none';
+          fallback.classList.add('active');
+        }
+      }, 6000);
+    }
+
+    function closeModal(){
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+      iframe.src = 'about:blank';  // stoppt Video
+      clearTimeout(loadTimer);
+    }
+
+    iframe.addEventListener('load', () => {
+      // Iframe hat geladen (egal ob erfolgreich oder Browser-Fehler)
+      // Bei X-Frame-Options-Block wird 'load' trotzdem gefeuert, aber Inhalt ist leer
+      iframeLoaded = true;
+      loading.style.display = 'none';
+      iframe.classList.add('loaded');
+      clearTimeout(loadTimer);
+
+      // Zusätzlich: nach 2s prüfen, ob der iframe wirklich Inhalt hat
+      // (Picflow könnte eine leere Seite liefern)
+      setTimeout(() => {
+        try {
+          const doc = iframe.contentDocument || iframe.contentWindow?.document;
+          if(doc && doc.body && doc.body.children.length === 0){
+            // Iframe ist leer → Fallback
+            iframe.classList.remove('loaded');
+            fallback.classList.add('active');
+          }
+        } catch(e) {
+          // Cross-Origin-Zugriff verweigert → das ist normal, Video lädt wahrscheinlich
+        }
+      }, 2000);
+    });
+
+    // Trigger: Klick auf Video-Card
+    document.querySelectorAll('.video-card[data-video-url]').forEach(card => {
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+        const url = card.getAttribute('data-video-url');
+        const title = card.getAttribute('data-video-title');
+        openModal(url, title);
+      });
+    });
+
+    // Close via X-Button oder Backdrop
+    modal.querySelectorAll('[data-close-modal]').forEach(el => {
+      el.addEventListener('click', closeModal);
+    });
+
+    // Close via ESC
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && modal.classList.contains('open')){
+        closeModal();
+      }
+    });
   })();
 
   const reveal = new IntersectionObserver(entries => {
