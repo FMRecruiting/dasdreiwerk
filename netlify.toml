@@ -1,0 +1,54 @@
+# ===========================================
+# Das Dreiwerk — Netlify-Konfiguration
+# ===========================================
+
+[build]
+  publish = "."
+
+# ---- Saubere URLs ----
+# /erstgespraech statt /erstgespraech.html
+[[redirects]]
+  from = "/erstgespraech.html"
+  to = "/erstgespraech"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/danke.html"
+  to = "/danke"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/impressum.html"
+  to = "/impressum"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/datenschutz.html"
+  to = "/datenschutz"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/agb.html"
+  to = "/agb"
+  status = 301
+  force = true
+
+# ---- Security-Header für alle Seiten ----
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+# ---- HTML-Dateien: kurzes Caching (für schnelle Updates) ----
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
